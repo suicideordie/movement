@@ -1,0 +1,141 @@
+<!-- HOMEPAGE -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <!-- <script src="https://unpkg.com/embla-carousel"></script> -->
+  <style>
+    body,
+    html {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      height: auto;
+      overflow-x: hidden;
+      background-color: #5a2d87;
+    }
+  </style>
+  <script src="./addons/p5.min.js"></script>
+  <script src="./addons/p5.sound.min.js"></script>
+  <script src="sketch_home.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header" id="header_id">
+      <div id="logo"><a class="link" href="home.html">SU!C!DE OR D!E</a></div>
+
+      <div class="menu">
+        <div class="elements" id="manifesto"><a class="link" href="manifesto.html" type="text/html">THE MANIFESTO</a></div>
+        <div class="elements" id="protest"><a class="link" href="protest.html" type="text/html">THE PROTEST</a></div>
+        <div class="elements" id="blog"><a class="link" href="blog.html" type="text/html">BLOG</a></div>
+      </div>
+      <!-- </nav> -->
+
+      <div class="rect_social">
+        <a href="https://www.instagram.com/suicideordieglobal/?hl=it"><img id="instagram_logo" src="assets/instagram_logo.png"></a>
+        <img id="YT_logo" src="assets/YT_logo.png">
+      </div>
+    </div>
+
+    <div class="main">
+      <video autoplay loop class="teaser" src="assets/SuicideOrDie_Teaser_finale.mp4" type="video/mp4" controls muted></video>
+      <div class="introbox">
+        <div id="intro">WE ARE A NON-VIOLENT MOVEMENT THAT SUPPORT SUICIDE AS <br> THE ONLY WAY TO SAVE HUMANITY.</div>
+      </div>
+      <div class="carousel">
+        <div>
+          <div class="box">
+            <img class="img_protest1" src="assets/protest2.png">
+            <div class="info_event">ACT FOR SUICIDE!<br>GENERAL MEETING</div>
+            <div class="date_event">from: 20.12.2019<br><mark id="spacing-letter">until:</mark> 20.12.2019</div>
+            <div class="time_event">09:15 - 18:00</div>
+            <div class="location_event">
+              <a href="https://www.google.com/maps/place/Via+Giuseppe+Candiani,+20158+Milano+MI/@45.5039397,9.1637813,17z/data=!3m1!4b1!4m5!3m4!1s0x4786c0e43b0d568b:0xaa488f1646234686!8m2!3d45.5039397!4d9.16597" class="link" target="_blank">
+                Bovisa, Via Candiani, Milan, Italy</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="box">
+            <img class="img_protest1" src="assets/protest.jpg">
+            <div class="info_event">SUICIDE OR DIE<br>PROTEST</div>
+            <div class="date_event">from: 12.3.2020<br><mark id="spacing-letter">until:</mark> 13.3.2020</div>
+            <div class="time_event">10:30 - 20:00</div>
+            <div class="location_event">
+              <a href="https://www.google.com/maps/place/O+Artoteca+Associazione+No+Profit/@45.4866837,9.1842384,17z/data=!3m1!4b1!4m5!3m4!1s0x4786c13275179a53:0xa93394f1eed05ceb!8m2!3d45.4866837!4d9.1864271" class="link" target="_blank">
+                Spazio O, via Pastrengo 12, Milan, Italy</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="box">
+            <img class="img_protest1" src="assets/overpopulation.png">
+            <div class="info_event">OVERPOPULATION:<br>WHAT TO DO ABOUT IT - TALK</div>
+            <div class="date_event">from: 23.4.2020<br><mark id="spacing-letter">until:</mark> 23.4.2020</div>
+            <div class="time_event">18:30 - 22:30</div>
+            <div class="location_event">
+              <a href="https://www.google.com/maps/place/Lyric+Hammersmith/@51.49289,-0.2287325,17z/data=!3m1!4b1!4m5!3m4!1s0x48760e6d46e59357:0x294dd5915db10fb9!8m2!3d51.49289!4d-0.2265438" class="link" target="_blank">
+                Lyric Hammersmith, Lyric Square, King St, Hammersmith, London W6 0QL, United Kingdom</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="box">
+            <img class="img_protest1" src="assets/Milan.jpg">
+            <div class="info_event">LOCAL WORKING GROUPS<br>GENERAL MEETING</div>
+            <div class="date_event">from: 1.5.2020<br><mark id="spacing-letter">until:</mark> 3.5.2020</div>
+            <div class="time_event">11:30 - 15:00</div>
+            <div class="location_event">
+              <a href="https://www.google.com/maps/search/Piccolo+Teatro,+Largo+Greppi+1,+Milan,+Italy/@45.4725672,9.1803719,17z/data=!3m1!4b1" class="link" target="_blank">
+                Piccolo Teatro, Largo Greppi 1, Milan, Italy</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="box">
+            <img class="img_protest1" src="assets/protest3.jpg">
+            <div class="info_event">ACT FOR HUMANITY:<br>JOIN THE PROTEST</div>
+            <div class="date_event">from: 10.6.2020<br><mark id="spacing-letter">until:</mark> 10.6.2020</div>
+            <div class="time_event">09:00 - 21:00</div>
+            <div class="location_event">Worldwide</div>
+          </div>
+        </div>
+        <div>
+          <div class="box">
+            <img class="img_protest1" src="assets/conventioncentre.jpg">
+            <div class="info_event">WHAT WE NEED<br>TO FOCUS ON - TALK</div>
+            <div class="date_event">from: 22.6.2020<br><mark id="spacing-letter">until:</mark> 22.6.2020</div>
+            <div class="time_event">18:30 - 22:30</div>
+            <div class="location_event">
+              <a href="https://www.google.com/maps/search/Paris+Convention+Centre,+1+Place+de+la+Porte+de+Versailles,+Paris,+France/@48.8299846,2.2853685,17z/data=!3m1!4b1" class="link" target="_blank">
+                Paris Convention Centre, 1 Place de la Porte de Versailles, Paris, France</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <div class="terms">© SUICIDE OR DIE 2019 | Privacy policy & Terms of service</div>
+    </footer>
+  </div>
+
+  <script src="carousel/dist/index.min.js"></script>
+  <script>
+    new ElderCarousel('.carousel', {
+      items: 6
+    });
+  </script>
+
+</body>
+
+
+
+</html>
