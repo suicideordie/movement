@@ -1,5 +1,6 @@
 var post;
 var text;
+var socket;
 
 function setup() {
   noCanvas();
@@ -11,6 +12,8 @@ function setup() {
 
   // var buttonA = select('#analyze');
   // buttonA.mousePressed(analyzeThis);
+
+  socket = io.connect('http://localhost:8080');
 }
 
 function draw() {

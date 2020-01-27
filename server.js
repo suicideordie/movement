@@ -2,21 +2,30 @@ var fs = require('fs');
 var data = fs.readFileSync('blog/post.json');
 //convert in JSON
 var post = JSON.parse(data);
-console.log(post);
 
+console.log(post);
 console.log('server is working');
 
 var express = require('express');
 
 var app = express();
-var server = app.listen(8080, listening);
+var server = app.listen(process.env.PORT || 8080, listening);
 
 //callback to check if connection is working
 function listening() {
   console.log('listening. . .');
 }
+
 //host static files
 app.use(express.static('blog'));
+
+var socket = require('socket.io');
+var io = socket(server);
+io.sockets.on('connection', newConnection);
+
+function newConnection(socket){
+  console.log('new Connection: ' + socket.id);
+}
 
 app.get('/add/:name/:text?', addWords);
 
