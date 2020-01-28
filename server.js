@@ -1,5 +1,5 @@
 var fs = require('fs');
-var data = fs.readFileSync('blog/post.json');
+var data = fs.readFileSync('public/post.json');
 //convert in JSON
 var post = JSON.parse(data);
 
@@ -17,7 +17,7 @@ function listening() {
 }
 
 //host static files
-app.use(express.static('blog'));
+app.use(express.static('public'));
 
 var socket = require('socket.io');
 var io = socket(server);
@@ -42,7 +42,7 @@ function addWords(request, response) {
   } else {
     post[name] = text;
     var data = JSON.stringify(post, null, 2);
-    fs.writeFile('blog/post.json', data, finished);
+    fs.writeFile('public/post.json', data, finished);
 
     function finished(err) {
       console.log('all set.');
