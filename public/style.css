@@ -76,7 +76,7 @@
 }
 
 .button {
-  background: transparent url("./assets/button-join.png");
+  background: transparent url("/assets/button-join.png");
   background-repeat: no-repeat;
   border: none;
   outline: 0;
