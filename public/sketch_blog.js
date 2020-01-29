@@ -10,10 +10,7 @@ function setup() {
   var button = select('#submit');
   button.mousePressed(submitPost);
 
-  // var buttonA = select('#analyze');
-  // buttonA.mousePressed(analyzeThis);
-
-  socket = io.connect('http://localhost:8080');
+  socket = io.connect('http://localhost:3000');
 }
 
 function draw() {
@@ -38,47 +35,3 @@ function submitPost() {
     console.log(data);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function analyzeThis() {
-//   var txt = select('#textinput').value();
-//   var data = {
-//     text: txt
-//   }
-//   httpPost('analyze', data, 'json', dataPosted, postErr);
-// }
-
-// function dataPosted(result) {
-//   console.log(result);
-// }
-// //callback for httppost
-// function postErr(err){
-//   console.log(err);
-// }
