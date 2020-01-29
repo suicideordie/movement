@@ -1,6 +1,6 @@
-if(process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+// if(process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config()
+// }
 
 var fs = require('fs');
 
@@ -15,6 +15,9 @@ var express = require('express');
 var app = express();
 //require library for password encryption and other stuff
 var bcrypt = require('bcrypt');
+
+//open the server to listen
+var server = app.listen(process.env.PORT || 8080, listening);
 
 var passport = require('passport');
 var flash = require('express-flash');
@@ -105,8 +108,7 @@ function checkNotAuthenticated(req, res, next) {
   next()
 }
 
-//open the server to listen
-var server = app.listen(process.env.PORT || 8080, listening);
+
 
 //callback to check if connection is working
 function listening() {
