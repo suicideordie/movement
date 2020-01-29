@@ -1,4 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <style>
+    body,
+    html {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      height: auto;
+      overflow-x: hidden;
+      background-color: #5a2d87;
+    }
+  </style>
+  <script src="addons/p5.min.js"></script>
+  <script src="addons/p5.sound.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src="sketch_blog.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header" id="header_id">
+      <div id="logo"><a class="link" href="home.html">SU!C!DE OR D!E</a></div>
+
+      <div class="menu">
+        <div class="elements" id="manifesto">THE MANIFESTO</div>
+        <div class="elements" id="protest">THE PROTEST</div>
+        <div class="elements" id="blog">BLOG</div>
+      </div>
+
+      <div class="rect_social">
+        <a href="https://www.instagram.com/suicideordieglobal/?hl=it"><img id="instagram_logo" src="assets/instagram_logo.png"></a>
+        <img id="YT_logo" src="assets/YT_logo.png">
+      </div>
+    </div>
+    <div class = "form">
+      <p>
+        <input type="text" id="name">
+      </br>
+        <input type="text" id="text">
+      </p>
+      <button id="submit">submit</button>
+    </div>
 
     <form action="/logout?_method=DELETE" method="POST">
       <button type="submit">LogOut</button>
     </form>
+  </div>
+
+</body>
+</html>
