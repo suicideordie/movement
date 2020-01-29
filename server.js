@@ -106,7 +106,7 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 //open the server to listen
-var server = app.listen(process.env.PORT || 3000, listening);
+var server = app.listen(process.env.PORT || 8080, listening);
 
 //callback to check if connection is working
 function listening() {

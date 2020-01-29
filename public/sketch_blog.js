@@ -10,7 +10,7 @@ function setup() {
   var button = select('#submit');
   button.mousePressed(submitPost);
 
-  socket = io.connect('http://localhost:3000');
+  socket = io.connect('http://localhost:8080');
 }
 
 function draw() {
