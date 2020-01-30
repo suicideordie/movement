@@ -4,7 +4,7 @@ if(process.env.NODE_ENV !== 'production') {
 
 var fs = require('fs');
 
-var data = fs.readFileSync('public/post.json');
+var data = fs.readFileSync('post.json');
 //convert in JSON
 var post = JSON.parse(data);
 
@@ -34,7 +34,7 @@ initializePassport(
 //blog users data
 var users = [];
 
-app.set('view-engine', 'ejs');
+app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}));
 app.use(flash());
 app.use(session({
@@ -50,6 +50,54 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
 
+//host static files
+app.use(express.static('public'));
+
+//callback to check if connection is working
+function listening() {
+  console.log('listening. . .');
+}
+
+var socket = require('socket.io');
+var io = socket(server);
+io.sockets.on('connection', newConnection);
+
+function newConnection(socket){
+  console.log('new Connection: ' + socket.id);
+}
+
+app.get('/add/:name/:text?', addWords);
+
+function addWords(request, response) {
+  var data = request.params;
+  var name = data.name;
+  var text = data.text;
+  var reply;
+  //re-convert data in text object
+  if(!text){
+    reply = {
+      msg: "score is required."
+    }
+  } else {
+    post[name] = text;
+    var data = JSON.stringify(post, null, 2);
+    fs.writeFile('public/post.json', data, finished);
+
+    function finished(err) {
+      console.log('all set.');
+    }
+
+    reply = {
+      msg: "thanks."
+    }
+  }
+}
+
+app.get('/all', sendAll);
+
+function sendAll(request, response) {
+  response.send(post);
+}
 
 app.get('/', checkAuthenticated, (req, res) => {
   res.render('index.ejs');
@@ -106,55 +154,4 @@ function checkNotAuthenticated(req, res, next) {
     return res.redirect('/')
   }
   next()
-}
-
-
-
-//callback to check if connection is working
-function listening() {
-  console.log('listening. . .');
-}
-
-//host static files
-app.use(express.static('public'));
-
-var socket = require('socket.io');
-var io = socket(server);
-io.sockets.on('connection', newConnection);
-
-function newConnection(socket){
-  console.log('new Connection: ' + socket.id);
-}
-
-app.get('/add/:name/:text?', addWords);
-
-function addWords(request, response) {
-  var data = request.params;
-  var name = data.name;
-  var text = data.text;
-  var reply;
-  //re-convert data in text object
-  if(!text){
-    reply = {
-      msg: "score is required."
-    }
-  } else {
-    post[name] = text;
-    var data = JSON.stringify(post, null, 2);
-    fs.writeFile('public/post.json', data, finished);
-
-    function finished(err) {
-      console.log('all set.');
-    }
-
-    reply = {
-      msg: "thanks."
-    }
-  }
-}
-
-app.get('/all', sendAll);
-
-function sendAll(request, response) {
-  response.send(post);
 }
