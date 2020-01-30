@@ -37,14 +37,13 @@ var users = [];
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}));
 app.use(flash());
-// app.use(session({
-//   secret: process.env.SESSION_SECRET,
-//   //resave our variables if nothing is changed
-//   resave: false,
-//   //save empty value if set on true
-//   saveUninitialized: false
-//
-// }));
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  //resave our variables if nothing is changed
+  resave: false,
+  //save empty value if set on true
+  saveUninitialized: false
+}));
 
 // app.use(passport.initialize());
 // app.use(passport.session());
