@@ -1,6 +1,6 @@
-if(process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+// if(process.env.NODE_ENV !== 'production') {
+//
+// }
 
 //require for login libraries
 var fs = require('fs');
@@ -10,6 +10,7 @@ var passport = require('passport');
 var flash = require('express-flash');
 var session = require('express-session');
 var methodOverride = require('method-override');
+require('dotenv').config()
 
 var data = fs.readFileSync('post.json');
 //convert in JSON
