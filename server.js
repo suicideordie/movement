@@ -21,16 +21,15 @@ console.log('server is working');
 var express = require('express');
 var app = express();
 
-var initializePassport = require('./passport-config');
-initializePassport(
-  passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
-);
-
 //open the server to listen
 var server = app.listen(process.env.PORT || 8080, listening);
 
+var initializePassport = require('./passport-config');
+// initializePassport(
+//   passport,
+//   email => users.find(user => user.email === email),
+//   id => users.find(user => user.id === id)
+// );
 
 // //blog users data
 // var users = [];
