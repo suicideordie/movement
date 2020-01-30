@@ -25,26 +25,26 @@ var app = express();
 var server = app.listen(process.env.PORT || 8080, listening);
 
 var initializePassport = require('./passport-config');
-// initializePassport(
-//   passport,
-//   email => users.find(user => user.email === email),
-//   id => users.find(user => user.id === id)
-// );
+initializePassport(
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
+);
 
-// //blog users data
-// var users = [];
-//
-// app.set('view engine', 'ejs');
-// app.use(express.urlencoded({extended: false}));
-// app.use(flash());
-// app.use(session({
-//   secret: process.env.SESSION_SECRET,
-//   //resave our variables if nothing is changed
-//   resave: false,
-//   //save empty value if set on true
-//   saveUninitialized: false
-//
-// }));
+//blog users data
+var users = [];
+
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended: false}));
+app.use(flash());
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  //resave our variables if nothing is changed
+  resave: false,
+  //save empty value if set on true
+  saveUninitialized: false
+
+}));
 
 // app.use(passport.initialize());
 // app.use(passport.session());
