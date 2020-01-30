@@ -2,7 +2,14 @@ if(process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
+//require for login libraries
 var fs = require('fs');
+//require library for password encryption and other stuff
+var bcrypt = require("bcryptjs");
+var passport = require('passport');
+var flash = require('express-flash');
+var session = require('express-session');
+var methodOverride = require('method-override');
 
 var data = fs.readFileSync('post.json');
 //convert in JSON
@@ -13,27 +20,20 @@ console.log('server is working');
 
 var express = require('express');
 var app = express();
-//require library for password encryption and other stuff
-var bcrypt = require("bcryptjs");
 
 //open the server to listen
 var server = app.listen(process.env.PORT || 8080, listening);
 
-var passport = require('passport');
-var flash = require('express-flash');
-var session = require('express-session');
-var methodOverride = require('method-override');
+var initializePassport = require('./passport-config');
+initializePassport(
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
+);
 
-// var initializePassport = require('./passport-config');
-// initializePassport(
-//   passport,
-//   email => users.find(user => user.email === email),
-//   id => users.find(user => user.id === id)
-// );
-//
 // //blog users data
 // var users = [];
-
+//
 // app.set('view engine', 'ejs');
 // app.use(express.urlencoded({extended: false}));
 // app.use(flash());
