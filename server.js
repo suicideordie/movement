@@ -1,6 +1,6 @@
-if(process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+// if(process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config()
+// }
 
 var fs = require('fs');
 
@@ -14,43 +14,43 @@ console.log('server is working');
 var express = require('express');
 var app = express();
 //require library for password encryption and other stuff
-var bcrypt = require('bcrypt');
+// var bcrypt = require('bcrypt');
 
 //open the server to listen
 var server = app.listen(process.env.PORT || 8080, listening);
 
 app.use(express.static('public'));
 
-var passport = require('passport');
-var flash = require('express-flash');
-var session = require('express-session');
-var methodOverride = require('method-override');
+// var passport = require('passport');
+// var flash = require('express-flash');
+// var session = require('express-session');
+// var methodOverride = require('method-override');
 
-var initializePassport = require('./passport-config');
-initializePassport(
-  passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
-);
+// var initializePassport = require('./passport-config');
+// initializePassport(
+//   passport,
+//   email => users.find(user => user.email === email),
+//   id => users.find(user => user.id === id)
+// );
+//
+// //blog users data
+// var users = [];
 
-//blog users data
-var users = [];
+// app.set('view engine', 'ejs');
+// app.use(express.urlencoded({extended: false}));
+// app.use(flash());
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   //resave our variables if nothing is changed
+//   resave: false,
+//   //save empty value if set on true
+//   saveUninitialized: false
+//
+// }));
 
-app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended: false}));
-app.use(flash());
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  //resave our variables if nothing is changed
-  resave: false,
-  //save empty value if set on true
-  saveUninitialized: false
-
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(methodOverride('_method'));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(methodOverride('_method'));
 
 //host static files
 
@@ -101,59 +101,59 @@ function sendAll(request, response) {
   response.send(post);
 }
 
-app.get('/', checkAuthenticated, (req, res) => {
-  res.render('index.ejs');
-});
-
-app.get('/login', checkNotAuthenticated, (req, res) => {
-  res.render('login.ejs');
-});
-
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
-  failureFlash: true
-}));
-
-app.get('/register', checkNotAuthenticated, (req, res) => {
-  res.render('register.ejs');
-});
-
-app.post('/register', checkNotAuthenticated, async (req, res) => {
-  try {
-    var hashedPassword = await bcrypt.hash(req.body.password, 10);
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword
-    })
-
-    res.redirect('/login');
-  } catch {
-    res.redirect('/register');
-  }
-  console.log(users);
-});
-
-//logout method
-app.delete('/logout', (req, res) => {
-  req.logOut()
-  res.redirect('/login')
-});
-
-//check if you can go on index page
-function checkAuthenticated(req, res, next) {
-  if(req.isAuthenticated()){
-    return next()
-  }
-  res.redirect('/login')
-}
-
-//check if you are logged in. Y>you cannot return to login page
-function checkNotAuthenticated(req, res, next) {
-  if(req.isAuthenticated()){
-    return res.redirect('/')
-  }
-  next()
-}
+// app.get('/', checkAuthenticated, (req, res) => {
+//   res.render('index.ejs');
+// });
+//
+// app.get('/login', checkNotAuthenticated, (req, res) => {
+//   res.render('login.ejs');
+// });
+//
+// app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+//   successRedirect: '/',
+//   failureRedirect: '/login',
+//   failureFlash: true
+// }));
+//
+// app.get('/register', checkNotAuthenticated, (req, res) => {
+//   res.render('register.ejs');
+// });
+//
+// app.post('/register', checkNotAuthenticated, async (req, res) => {
+//   try {
+//     var hashedPassword = await bcrypt.hash(req.body.password, 10);
+//     users.push({
+//       id: Date.now().toString(),
+//       name: req.body.name,
+//       email: req.body.email,
+//       password: hashedPassword
+//     })
+//
+//     res.redirect('/login');
+//   } catch {
+//     res.redirect('/register');
+//   }
+//   console.log(users);
+// });
+//
+// //logout method
+// app.delete('/logout', (req, res) => {
+//   req.logOut()
+//   res.redirect('/login')
+// });
+//
+// //check if you can go on index page
+// function checkAuthenticated(req, res, next) {
+//   if(req.isAuthenticated()){
+//     return next()
+//   }
+//   res.redirect('/login')
+// }
+//
+// //check if you are logged in. Y>you cannot return to login page
+// function checkNotAuthenticated(req, res, next) {
+//   if(req.isAuthenticated()){
+//     return res.redirect('/')
+//   }
+//   next()
+// }
