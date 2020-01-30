@@ -14,7 +14,7 @@ console.log('server is working');
 var express = require('express');
 var app = express();
 //require library for password encryption and other stuff
-// var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt');
 
 //open the server to listen
 var server = app.listen(process.env.PORT || 8080, listening);
