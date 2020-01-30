@@ -5,7 +5,7 @@ if(process.env.NODE_ENV !== 'production') {
 //require for login libraries
 var fs = require('fs');
 //require library for password encryption and other stuff
-var bcrypt = require("bcryptjs");
+var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var flash = require('express-flash');
 var session = require('express-session');
