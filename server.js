@@ -35,7 +35,7 @@ initializePassport(
 var users = [];
 
 app.set('view engine', 'ejs');
-// app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));
 // app.use(flash());
 // app.use(session({
 //   secret: process.env.SESSION_SECRET,
