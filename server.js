@@ -19,10 +19,10 @@ var bcrypt = require('bcrypt');
 //open the server to listen
 var server = app.listen(process.env.PORT || 8080, listening);
 
-var passport = require('passport');
-var flash = require('express-flash');
-var session = require('express-session');
-var methodOverride = require('method-override');
+// var passport = require('passport');
+// var flash = require('express-flash');
+// var session = require('express-session');
+// var methodOverride = require('method-override');
 
 // var initializePassport = require('./passport-config');
 // initializePassport(
