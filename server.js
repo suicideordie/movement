@@ -1,6 +1,6 @@
-// if(process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config()
-// }
+if(process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 var fs = require('fs');
 
@@ -18,8 +18,6 @@ var app = express();
 
 //open the server to listen
 var server = app.listen(process.env.PORT || 8080, listening);
-
-app.use(express.static('public'));
 
 // var passport = require('passport');
 // var flash = require('express-flash');
@@ -53,7 +51,7 @@ app.use(express.static('public'));
 // app.use(methodOverride('_method'));
 
 //host static files
-
+app.use(express.static('public'));
 
 //callback to check if connection is working
 function listening() {
