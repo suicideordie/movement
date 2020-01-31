@@ -100,7 +100,7 @@ function sendAll(request, response) {
   response.send(post);
 }
 
-app.get('/', checkAuthenticated, (req, res) => {
+app.get('/blog', checkAuthenticated, (req, res) => {
   res.render('index_blog.ejs');
 });
 
