@@ -82,7 +82,7 @@ function addWords(request, response) {
   } else {
     post[name] = text;
     var data = JSON.stringify(post, null, 2);
-    fs.writeFile('public/post.json', data, finished);
+    fs.writeFile('post.json', data, finished);
 
     function finished(err) {
       console.log('all set.');
@@ -101,7 +101,7 @@ function sendAll(request, response) {
 }
 
 app.get('/', checkAuthenticated, (req, res) => {
-  res.render('index.ejs');
+  res.render('index_blog.ejs');
 });
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
