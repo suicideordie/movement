@@ -45,7 +45,7 @@ app.use(session({
   //resave our variables if nothing is changed
   resave: false,
   //save empty value if set on true
-  // saveUninitialized: false
+  saveUninitialized: true
 }));
 
 // app.use(passport.initialize());
