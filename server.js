@@ -100,59 +100,59 @@ function sendAll(request, response) {
   response.send(post);
 }
 
-// app.get('/', checkAuthenticated, (req, res) => {
-//   res.render('index.ejs');
-// });
-//
-// app.get('/login', checkNotAuthenticated, (req, res) => {
-//   res.render('login.ejs');
-// });
-//
-// app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-//   successRedirect: '/',
-//   failureRedirect: '/login',
-//   failureFlash: true
-// }));
-//
-// app.get('/register', checkNotAuthenticated, (req, res) => {
-//   res.render('register.ejs');
-// });
-//
-// app.post('/register', checkNotAuthenticated, async (req, res) => {
-//   try {
-//     var hashedPassword = await bcrypt.hash(req.body.password, 10);
-//     users.push({
-//       id: Date.now().toString(),
-//       name: req.body.name,
-//       email: req.body.email,
-//       password: hashedPassword
-//     })
-//
-//     res.redirect('/login');
-//   } catch {
-//     res.redirect('/register');
-//   }
-//   console.log(users);
-// });
-//
-// //logout method
-// app.delete('/logout', (req, res) => {
-//   req.logOut()
-//   res.redirect('/login')
-// });
-//
-// //check if you can go on index page
-// function checkAuthenticated(req, res, next) {
-//   if(req.isAuthenticated()){
-//     return next()
-//   }
-//   res.redirect('/login')
-// }
-//
-// //check if you are logged in. Y>you cannot return to login page
-// function checkNotAuthenticated(req, res, next) {
-//   if(req.isAuthenticated()){
-//     return res.redirect('/')
-//   }
-//   next()
-// }
+app.get('/', checkAuthenticated, (req, res) => {
+  res.render('index.ejs');
+});
+
+app.get('/login', checkNotAuthenticated, (req, res) => {
+  res.render('login.ejs');
+});
+
+app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
+
+app.get('/register', checkNotAuthenticated, (req, res) => {
+  res.render('register.ejs');
+});
+
+app.post('/register', checkNotAuthenticated, async (req, res) => {
+  try {
+    var hashedPassword = await bcrypt.hash(req.body.password, 10);
+    users.push({
+      id: Date.now().toString(),
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword
+    })
+
+    res.redirect('/login');
+  } catch {
+    res.redirect('/register');
+  }
+  console.log(users);
+});
+
+//logout method
+app.delete('/logout', (req, res) => {
+  req.logOut()
+  res.redirect('/login')
+});
+
+//check if you can go on index page
+function checkAuthenticated(req, res, next) {
+  if(req.isAuthenticated()){
+    return next()
+  }
+  res.redirect('/login')
+}
+
+//check if you are logged in. Y>you cannot return to login page
+function checkNotAuthenticated(req, res, next) {
+  if(req.isAuthenticated()){
+    return res.redirect('/')
+  }
+  next()
+}
