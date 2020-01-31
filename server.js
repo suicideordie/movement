@@ -52,7 +52,7 @@ app.use(passport.session());
 app.use(methodOverride('_method'));
 
 //host static files
-app.use(express.static('public'));
+app.use(express.static('views'));
 
 //callback to check if connection is working
 function listening() {

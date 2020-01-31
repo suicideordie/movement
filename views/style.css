@@ -1,0 +1,405 @@
+@font-face {
+  font-family: "Trim";
+  src: url("./assets/font/TrimPoster-Average.otf");
+}
+
+@font-face {
+  font-family: "Trim-regular";
+  src: url("./assets/font/Trim-Regular.otf");
+}
+
+@media only screen and (max-width: 1685px){
+  #who {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1563px){
+  #who, #manifesto {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1280px){
+  #who, #manifesto, #protest {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1034px){
+  #who, #manifesto, #protest, #blog {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 866px) {
+  #intro {
+    font-size: 120px;
+    line-height: 100px;
+  }
+}
+
+@media only screen and (max-width: 867px){
+  #intro {
+    font-size: 80px;
+    line-height: 66.4px;
+  }
+}
+
+/*acess page*/
+.title {
+  font-family: "Trim";
+  color: #ffeb00;
+  position: relative;
+  left: 8.34375rem;
+  margin: 0px;
+  padding: 0px;
+  font-size: 120px;
+}
+
+#p01 {
+  top: 133.5px;
+  font-size: 1em;
+  line-height: 100px;
+}
+
+#counter {
+  top: 142.5px;
+  font-size: 3em;
+  line-height: 300px;
+}
+
+#p02 {
+  top: 151.5px;
+  font-size: 1em;
+  line-height: 100px;
+}
+
+.button {
+  background: transparent url("/assets/button-join.png");
+  background-repeat: no-repeat;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  padding: 0px;
+  left: 270px;
+  top: 300px;
+  width: 303px;
+  height: 151px;
+}
+
+/* --end acess page
+start HOMEPAGE*/
+body, html {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-x: hidden;
+  background-color: #5a2d87;
+}
+
+.teaser {
+  position: relative;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  outline: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.header {
+  height: 100px;
+  width: 100%;
+  /* overflow: hidden; */
+  display: flex;
+  justify-content: space-between;
+  overflow: visible;
+  background-color: #5a2d87;
+  z-index: 2;
+  align-items: center;
+  order: 1;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.main {
+  order: 2;
+}
+
+#logo {
+  font-family: "Trim";
+  font-size: 2.35em;
+  color: #ffeb00;
+  position: relative;
+  margin-left: 30px;
+  /* padding-left: 30px; */
+  z-index: 3;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  padding-left: 350px;
+  z-index: 3;
+
+  /* top: 50px; */
+}
+
+.elements {
+  position: sticky;
+  position: -webkit-sticky;
+  font-family: "Trim";
+  /* font-size: 2.35em; */
+  /* font-size: 37.6px; */
+  font-size: 1.95vw;
+  color: #ffeb00;
+  display: inline;
+  padding-right: 71.5px;
+  /* text-align: center; */
+  text-decoration: none;
+  flex-grow: 1;
+  z-index: 3;
+  white-space: nowrap;
+
+}
+
+.rect_social {
+  position: relative;
+  background: #ffeb00;
+  display: flex;
+  width: 300px;
+  height: 100px;
+  min-width: 300px;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 3;
+}
+
+#instagram_logo {
+  z-index: 4;
+}
+
+#YT_logo {
+  /* position: relative; */
+  z-index: 4;
+}
+
+.introbox {
+  /* position: relative; */
+  background-color: #5a2d87;
+  top: 1180px;
+  height: 832px;
+  width: 100%;
+    margin-top: 120px;
+  z-index: 1;
+}
+
+#intro {
+  font-family: "Trim";
+  /* font-size: 6vw; */
+  color: #ffeb00;
+  text-align: left;
+  text-decoration: none;
+  position: absolute;
+  margin-left: 30px;
+  max-width: 1100px;
+  min-width: 50px;
+  margin-top: 120px;
+  z-index: 1;
+}
+
+/*Carousel style*/
+.carousel {
+  padding-top: 200px;
+  padding-bottom: 300px;
+  background-color: #ffeb00;
+}
+
+.box {
+  height: 588px;
+  background-color: #5a2d87;
+  margin-left: 120px;
+}
+
+/*inside the boxes*/
+
+.img_protest1 {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.info_event {
+  font-family: "Trim";
+  font-size: 2.35em;
+  line-height: 31.2px;
+  letter-spacing : 0.6px;
+  color: #ffeb00;
+  margin-top: 44px;
+  margin-left: 44px;
+}
+
+.date_event {
+  font-family: "Trim-regular";
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing : 0.38px;
+  color: #ffeb00;
+  margin-top: 31.4px;
+  margin-left: 44px;
+  display: inline-block;
+}
+
+.date_event #spacing-letter {
+  letter-spacing : 0.98px;
+  background-color: transparent;
+  color: #ffeb00;
+}
+
+.time_event {
+  font-family: "Trim-regular";
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing : 0.38px;
+  color: #ffeb00;
+  margin-top: 31.5px;
+  float: right;
+  margin-right: 44px;
+  display: inline-block;
+}
+
+.location_event {
+  font-family: "Trim-regular";
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing : -0.4px;
+  color: #ffeb00;
+  margin-top: 31.4px;
+  margin-left: 44px;
+  margin-right: 44px;
+  float: left;
+}
+
+.link {
+  text-decoration: none;
+  color: #ffeb00;
+}
+
+/* .events_text {
+  position: relative;
+  font-family: "Trim";
+  font-size: 60px;
+  letter-spacing : 0.9px;
+  color: #5a2d87;
+  top: 100px;
+} */
+
+.ec {
+  position: relative
+}
+
+.ec .ec__holder {
+  overflow: hidden;
+}
+
+.ec .ec__track {
+  will-change: transform
+}
+
+.ec .ec__track:after {
+  content: '';
+  display: table;
+  clear: both
+}
+
+.ec .ec__item {
+  width: 480px;
+  float: left;
+  overflow: hidden
+}
+
+.ec .ec__pagination {
+  text-align: center;
+  margin-top: 10px
+}
+
+.ec .ec__pagination .pagination__dot {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  display: inline-block;
+  border: 1px solid #000;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer
+}
+
+.ec .ec__pagination .pagination__dot--active {
+  background-color: #000
+}
+
+.ec .ec__nav {
+  position: absolute;
+  bottom: 10px;
+  border-top: 2px solid #5a2d87;
+  border-right: 2px solid #5a2d87;
+  width: 8px;
+  height: 8px;
+  cursor: pointer
+}
+
+.ec .ec__nav:before {
+  content: ''
+}
+
+.ec .ec__nav--prev {
+  transform: rotate(-135deg);
+  top: 494px;
+  left: 3.75em;
+}
+
+.ec .ec__nav--next {
+  transform: rotate(45deg);
+  top: 494px;
+  right: 3.75em;
+}
+
+.footer {
+  /* position: absolute; */
+  width: 100%;
+  bottom: 0;
+  margin-top: 0px;
+  height: 276px;
+  background-color: #5a2d87;
+  z-index: 2;
+  order: 2;
+}
+
+.terms {
+  font-family: "Trim-regular";
+  font-size: 12.5px;
+  line-height: 30px;
+  letter-spacing : 0.38px;
+  margin-left: 120px;
+  margin-top: 232px;
+  color: #ffeb00;
+}
+
+/* --end carousel style */
+/* start footer */
+/* --end homepage */
