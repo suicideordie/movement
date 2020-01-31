@@ -38,12 +38,14 @@ var users = [];
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}));
 app.use(flash());
+
+// Create a session for developing and debugging
 app.use(session({
-  secret: secret,
+  secret: process.env.SESSION_SECRET,
   //resave our variables if nothing is changed
   resave: false,
   //save empty value if set on true
-  saveUninitialized: false
+  // saveUninitialized: false
 }));
 
 // app.use(passport.initialize());
