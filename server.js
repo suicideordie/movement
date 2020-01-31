@@ -137,16 +137,16 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 
 //logout method
 app.delete('/logout', (req, res) => {
-  req.logOut()
-  res.redirect('/login')
+  req.logOut();
+  res.redirect('/login');
 });
 
 //check if you can go on index page
 function checkAuthenticated(req, res, next) {
   if(req.isAuthenticated()){
-    return next()
+    return next();
   }
-  res.redirect('/login')
+  res.redirect('/login');
 }
 
 //check if you are logged in. Y>you cannot return to login page
