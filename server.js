@@ -10,7 +10,7 @@ var passport = require('passport');
 var flash = require('express-flash');
 var session = require('express-session');
 var methodOverride = require('method-override');
-require('dotenv').config()
+// require('dotenv').config();
 
 var data = fs.readFileSync('post.json');
 //convert in JSON
@@ -35,9 +35,9 @@ initializePassport(
 //blog users data
 var users = [];
 
-// app.set('view engine', 'ejs');
-// app.use(express.urlencoded({extended: false}));
-// app.use(flash());
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended: false}));
+app.use(flash());
 
 // Create a session for developing and debugging
 // app.use(session({
