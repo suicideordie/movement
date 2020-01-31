@@ -23,7 +23,7 @@ var express = require('express');
 var app = express();
 
 //open the server to listen
-var server = app.listen(process.env.PORT || 8080, listening);
+var server = app.listen(process.env.PORT || 3000, listening);
 
 var initializePassport = require('./passport-config');
 initializePassport(
@@ -37,7 +37,7 @@ var users = [];
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}));
-// app.use(flash());
+app.use(flash());
 
 // Create a session for developing and debugging
 // app.use(session({
