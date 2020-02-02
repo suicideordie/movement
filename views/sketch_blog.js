@@ -1,8 +1,10 @@
-var post;
-var text;
+var user;
 var socket;
 
 function setup() {
+  var data = {
+    name: 'we'
+  }
   noCanvas();
   console.log("working");
   loadJSON('all', showData);
@@ -10,7 +12,8 @@ function setup() {
   var button = select('#submit');
   button.mousePressed(submitPost);
 
-  socket = io.connect('http://localhost:3000');
+  socket = io.connect('http://localhost:8080');
+  socket.emit('username', data);
 }
 
 function draw() {
@@ -19,17 +22,19 @@ function draw() {
 
 function showData(data) {
   keys = Object.keys(data);
-  console.log(data);
-  for(var i = 0; i < keys.length; i++) {
+  // console.log(data);
+
+  for (var i = 0; i < keys.length; i++) {
     text = createP(keys[i]);
   }
 }
 
 function submitPost() {
-  var name = select('#name').value();
+  // var user = document.getElementById("user").value();
   var text = select('#text').value();
+  var i = -1;
 
-  loadJSON('add/' + name + '/' + text, finished);
+  loadJSON('/add/' + user + '/' + text, finished);
 
   function finished(data) {
     console.log(data);

@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
@@ -10,9 +10,10 @@ var passport = require('passport');
 var flash = require('express-flash');
 var session = require('express-session');
 var methodOverride = require('method-override');
+var util = require('util');
 
 var data = fs.readFileSync('post.json');
-//convert in JSON
+//convert in object
 var post = JSON.parse(data);
 
 console.log(post);
@@ -22,7 +23,7 @@ var express = require('express');
 var app = express();
 
 //open the server to listen
-var server = app.listen(process.env.PORT || 3000, listening);
+var server = app.listen(process.env.PORT || 8080, listening);
 
 var initializePassport = require('./passport-config');
 initializePassport(
@@ -35,7 +36,9 @@ initializePassport(
 var users = [];
 
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(flash());
 
 // Create a session for developing and debugging
@@ -63,35 +66,69 @@ var socket = require('socket.io');
 var io = socket(server);
 io.sockets.on('connection', newConnection);
 
-function newConnection(socket){
+function newConnection(socket) {
   console.log('new Connection: ' + socket.id);
+  socket.on('username', sendName);
+
+  function sendName(data) {
+    console.log(data);
+  }
+
+
+
 }
 
-app.get('/add/:name/:text?', addWords);
+// app.get('/add/:user/:text', addWords);
+app.get('/add/:user/:text', addWords);
+
 
 function addWords(request, response) {
   var data = request.params;
-  var name = data.name;
+  var user = data.user;
   var text = data.text;
   var reply;
-  //re-convert data in text object
-  if(!text){
+  if (!text) {
     reply = {
-      msg: "score is required."
+      msg: "Score is required."
     }
   } else {
-    post[name] = text;
-    var data = JSON.stringify(post, null, 2);
+    post[user] = text;
+    data = JSON.stringify(post, null, 2);
     fs.writeFile('post.json', data, finished);
-
     function finished(err) {
       console.log('all set.');
     }
-
-    reply = {
-      msg: "thanks."
+    reply =  {
+      msg: "thank you for your word"
     }
   }
+
+  response.send(reply);
+  //
+  // var id = data.id;
+  // var name = data.name;
+  // var text = data.text;
+  // var date = data.date;
+  // var reply;
+  //
+  // var blog = {
+  //   id: "id",
+  //   name: "name",
+  //   text: "text",
+  //   date: "date"
+  // }
+  //
+  // JSON.stringify(post, null, 2);
+  // fs.writeFile('post.json', JSON.stringify(blog, null, 2), { flag: ', a+' }, finished);
+  //
+  // function finished(err) {
+  //   console.log('all set.');
+  // }
+  // reply =  {
+  //   msg: "thank you for your word."
+  // }
+  //
+  //   response.send(reply);
 }
 
 app.get('/all', sendAll);
@@ -127,12 +164,10 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
       email: req.body.email,
       password: hashedPassword
     })
-
     res.redirect('/login');
   } catch {
     res.redirect('/register');
   }
-  console.log(users);
 });
 
 //logout method
@@ -143,7 +178,7 @@ app.delete('/logout', (req, res) => {
 
 //check if you can go on index page
 function checkAuthenticated(req, res, next) {
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     return next();
   }
   res.redirect('/login');
@@ -151,7 +186,7 @@ function checkAuthenticated(req, res, next) {
 
 //check if you are logged in. Y>you cannot return to login page
 function checkNotAuthenticated(req, res, next) {
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     return res.redirect('/')
   }
   next()
