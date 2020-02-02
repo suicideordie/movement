@@ -118,7 +118,7 @@ body, html {
 }
 
 .myBackground {
-  background-color: #553c91;
+  background-color: #59358c;
 }
 
 .myBackground-2 {
@@ -147,7 +147,7 @@ body, html {
   display: flex;
   justify-content: space-between;
   overflow: visible;
-  background-color: #553c91;
+  background-color: #59358c;
   z-index: 2;
   align-items: center;
   order: 1;
@@ -224,7 +224,7 @@ body, html {
 
 .introbox {
   /* position: relative; */
-  /* background-color: #553c91; */
+  /* background-color: #59358c; */
   /* height: calc(100vh - 100px); */
   width: 100%;
   margin-top: 160px;
@@ -246,7 +246,7 @@ body, html {
 }
 
 .violet{
-  background-color: #553c91;
+  background-color: #59358c;
   padding-top: 120px;
   padding-bottom: 60px;
 }
@@ -303,7 +303,7 @@ body, html {
 }
 .largeP-2 {
   font-family: "Trim";
-  color: #553c91;
+  color: #59358c;
   text-align: left;
   text-decoration: none;
   text-transform: uppercase;
@@ -317,7 +317,7 @@ body, html {
 .smallP-2{
   font-family: "Trim-regular";
   font-size: 25px;
-  color: #553c91;
+  color: #59358c;
   text-align: left;
   text-decoration: none;
   /* position: absolute; */
@@ -390,11 +390,33 @@ body, html {
 .download-2{
   font-family: "Trim-regular";
   font-size: 25px;
-  color: #553c91;
+  color: #59358c;
   text-align: left;
   text-decoration: underline;
   margin-top:-100px;
   margin-left:11vw;
+}
+
+input[type=password] {
+  margin-left: 60px;
+  margin-top:10px;
+  margin-bottom: 20px;
+  padding-left:10px;
+  height: 40px;
+  border: 5px solid #ffeb00;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+input[type=email] {
+  margin-left: 60px;
+  margin-top:10px;
+  margin-bottom: 20px;
+  padding-left:10px;
+  height: 40px;
+  border: 5px solid #ffeb00;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 /*Carousel style*/
@@ -406,7 +428,7 @@ body, html {
 
 .box {
   height: 588px;
-  background-color: #553c91;
+  background-color: #59358c;
   margin-left: 120px;
 }
 
@@ -477,7 +499,7 @@ body, html {
   font-family: "Trim";
   font-size: 60px;
   letter-spacing : 0.9px;
-  color: #553c91;
+  color: #59358c;
   top: 100px;
 } */
 .ec {
@@ -527,8 +549,8 @@ body, html {
 .ec .ec__nav {
   position: absolute;
   bottom: 10px;
-  border-top: 2px solid #553c91;
-  border-right: 2px solid #553c91;
+  border-top: 2px solid #59358c;
+  border-right: 2px solid #59358c;
   width: 8px;
   height: 8px;
   cursor: pointer
@@ -556,7 +578,7 @@ body, html {
   bottom: 0;
   margin-top: 0px;
   height: 276px;
-  background-color: #553c91;
+  background-color: #59358c;
   z-index: 2;
   order: 2;
 }

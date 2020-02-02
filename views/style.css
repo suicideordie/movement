@@ -98,7 +98,7 @@ body, html {
   height: 100%;
   overflow-x: hidden;
   overflow-x: hidden;
-  background-color: #5a2d87;
+  background-color: #59358c;
 }
 
 .teaser {
@@ -123,7 +123,7 @@ body, html {
   display: flex;
   justify-content: space-between;
   overflow: visible;
-  background-color: #5a2d87;
+  background-color: #59358c;
   z-index: 2;
   align-items: center;
   order: 1;
@@ -202,7 +202,7 @@ body, html {
 
 .introbox {
   /* position: relative; */
-  background-color: #5a2d87;
+  background-color: #59358c;
   top: 1180px;
   height: 832px;
   width: 100%;
@@ -233,7 +233,7 @@ body, html {
 
 .box {
   height: 588px;
-  background-color: #5a2d87;
+  background-color: #59358c;
   margin-left: 120px;
 }
 
@@ -305,7 +305,7 @@ body, html {
   font-family: "Trim";
   font-size: 60px;
   letter-spacing : 0.9px;
-  color: #5a2d87;
+  color: #59358c;
   top: 100px;
 } */
 
@@ -356,8 +356,8 @@ body, html {
 .ec .ec__nav {
   position: absolute;
   bottom: 10px;
-  border-top: 2px solid #5a2d87;
-  border-right: 2px solid #5a2d87;
+  border-top: 2px solid #59358c;
+  border-right: 2px solid #59358c;
   width: 8px;
   height: 8px;
   cursor: pointer
@@ -385,7 +385,7 @@ body, html {
   bottom: 0;
   margin-top: 0px;
   height: 276px;
-  background-color: #5a2d87;
+  background-color: #59358c;
   z-index: 2;
   order: 2;
 }

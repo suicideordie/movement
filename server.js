@@ -12,6 +12,8 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var util = require('util');
 
+var username;
+
 var data = fs.readFileSync('post.json');
 //convert in object
 var post = JSON.parse(data);
@@ -23,7 +25,7 @@ var express = require('express');
 var app = express();
 
 //open the server to listen
-var server = app.listen(process.env.PORT || 8080, listening);
+var server = app.listen(process.env.PORT || 3000, listening);
 
 var initializePassport = require('./passport-config');
 initializePassport(
@@ -68,14 +70,9 @@ io.sockets.on('connection', newConnection);
 
 function newConnection(socket) {
   console.log('new Connection: ' + socket.id);
-  socket.on('username', sendName);
 
-  function sendName(data) {
-    console.log(data);
-  }
-
-
-
+  io.sockets.emit('username', username);
+  console.log(username);
 }
 
 // app.get('/add/:user/:text', addWords);
@@ -164,6 +161,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
       email: req.body.email,
       password: hashedPassword
     })
+    username = users[0].name;
     res.redirect('/login');
   } catch {
     res.redirect('/register');
