@@ -2,7 +2,7 @@ var user;
 var socket;
 var keys;
 var keyslen;
-var id;
+var id = 0;
 
 function setup() {
   noCanvas();
@@ -45,16 +45,36 @@ function showData(data) {
 }
 
 function submitPost() {
+
+  loadJSON('all', incId);
+}
+
+function incId(data) {
+  var date = "03-02-2020";
+  var text = select('#text').value();
   var post;
   var container;
   var author;
-  loadJSON('all', incId);
-  var text = select('#text').value();
+  keys = Object.keys(data);
+  console.log(keys);
+  keyslen = keys.length;
+  console.log("id init: " + id);
+  console.log("lunghezza chiave init: " + keyslen);
+  if(keyslen > 0) {
+    console.log("lunghezza chiave mid: " + keyslen);
+    // keyslen = keyslen - 1;
+    id = Number(keyslen);
+  } else {
+    console.log("else");
+    id = 0;
+  }
+  console.log("keys lenfth " + keys.length);
+  console.log("id end: " + id);
+  console.log("lunghezza chiave end: " + keyslen);
 
-  var date = "1234";
-
-
-  loadJSON('/add/' + Number(id) + '/' + user + '/' + text + '/' + date, finished);
+  console.log("user injt: " + user);
+  loadJSON('/add/' + id + '/' + user + '/' + text + '/' + date, finished);
+  console.log("user end: " + user);
   container = createDiv();
   container.addClass("post");
   container.parent("blogbox");
@@ -70,21 +90,4 @@ function submitPost() {
   function finished(data) {
     console.log(data);
   }
-}
-
-function incId(data) {
-  keys = Object.keys(data);
-  keyslen = keys.length;
-  console.log("id init: " + id);
-  console.log("lunghezza chiave init: " + keyslen);
-  if(keyslen > 0) {
-    keyslen = keyslen - 1;
-    console.log("lunghezza chiave mid: " + keyslen);
-    id = Number(keys[keyslen]) + 1;
-  } else {
-    console.log("else");
-    id = 0;
-  }
-  console.log("id end: " + id);
-  console.log("lunghezza chiave end: " + keyslen);
 }

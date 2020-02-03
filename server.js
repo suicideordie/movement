@@ -85,7 +85,7 @@ function addWords(request, response) {
   var id = data.id;
   var user = data.user;
   var text = data.text;
-  var date = "0101001";
+  var date = "03-02-2020";
 
   console.log("prima: " + id);
 
