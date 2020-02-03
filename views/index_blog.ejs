@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="style-2.css" media="screen" />
   <style>
     body,
     html {
@@ -11,7 +11,6 @@
       margin: 0;
       height: auto;
       overflow-x: hidden;
-      background-color: #5a2d87;
     }
   </style>
   <script src="addons/p5.min.js"></script>
@@ -22,7 +21,7 @@
 
 </head>
 
-<body>
+<body class="myBackground">
   <div class="container">
     <div class="header" id="header_id">
       <div id="logo"><a class="link" href="home.html">SU!C!DE OR D!E</a></div>
@@ -39,16 +38,22 @@
         <img id="YT_logo" src="assets/YT_logo.png">
       </div>
     </div>
+
+    <div class="main">
+    <div id="blogbox">
+    <div style="position:fixed; height: 300px; width:100%; left:0px; margin:0px; bottom:0px; background-color:#59358c; pointer-events:none;">
+    </div>
     <div class = "form">
       <p>
-        <input type="text" id="text">
+        <textarea id="text"></textarea>
       </p>
-      <button id="submit">post</button>
+      <button id="postbutton">POST</button>
     </div>
-
+    </div>
     <form action="/logout?_method=DELETE" method="POST">
-      <button type="submit">Logout</button>
+      <button type="submit" style="position:absolute; right:60px; top:150px; width:240px;">LOGOUT</button>
     </form>
+    </div>
 
   </div>
 

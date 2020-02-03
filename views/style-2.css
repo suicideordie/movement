@@ -397,6 +397,17 @@ body, html {
   margin-left:11vw;
 }
 
+input[type=text] {
+  margin-left: 60px;
+  margin-top:10px;
+  margin-bottom: 20px;
+  padding-left:10px;
+  height: 40px;
+  border: 5px solid #ffeb00;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 input[type=password] {
   margin-left: 60px;
   margin-top:10px;
@@ -417,6 +428,50 @@ input[type=email] {
   border: 5px solid #ffeb00;
   display: inline-block;
   box-sizing: border-box;
+}
+
+#submit{
+  background-color: #ffeb00;
+  font-family: "Trim";
+  font-size: 25px;
+  color:#59358c;
+  cursor: pointer;
+  border: 5px solid #ffeb00;
+  margin-left: 60px;
+  margin-top:10px;
+  margin-bottom: 20px;
+  padding-left:10px;
+  height: 50px;
+  width: 180px;
+}
+
+#submit:hover{
+  color: #ffeb00;
+  background-color:#59358c;
+}
+
+button[type=submit]{
+  background-color: #ffeb00;
+  font-family: "Trim";
+  font-size: 25px;
+  color:#59358c;
+  cursor: pointer;
+  border: 5px solid #ffeb00;
+  margin-left: 60px;
+  margin-top:10px;
+  margin-bottom: 20px;
+  padding-left:10px;
+  height: 50px;
+  width: 180px;
+}
+
+button[type=submit]:hover{
+  color: #ffeb00;
+  background-color:#59358c;
+}
+
+.smallLink{
+  color: #ffeb00;
 }
 
 /*Carousel style*/
@@ -492,6 +547,71 @@ input[type=email] {
 .link {
   text-decoration: none;
   color: #ffeb00;
+}
+
+#text{
+  resize: none;
+
+  font-family: "Trim-regular";
+  font-size: 20px;
+
+
+  position: fixed;
+  margin-left: 0px;
+  bottom: 150px;
+  width:calc(100% - 310px - 310px);
+  height: 120px;
+  padding: 10px 10px;
+  border: 5px solid #ffeb00;
+}
+
+#blogbox{
+  position:absolute;
+  /* background-color: #ddd; */
+  top: 145px;
+  width:calc(100% - 310px - 310px);
+  margin-left:310px;
+  margin-right:310px;
+  margin-bottom: 360px;
+}
+
+#postbutton{
+  position: fixed;
+  bottom: 50px;
+
+  background-color: #ffeb00;
+  font-family: "Trim";
+  font-size: 25px;
+  color:#59358c;
+  cursor: pointer;
+  border: 5px solid #ffeb00;
+  padding-left:10px;
+  height: 50px;
+  width: 180px;
+}
+
+#postbutton:hover{
+  color: #ffeb00;
+  background-color:#59358c;
+}
+
+.post{
+  font-family: "Trim-regular";
+  color:#ffeb00;
+  box-sizing: border-box;
+  background-color: #59358c;
+  border: 5px solid #ffeb00;
+  padding: 10px;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+}
+
+.postText{
+  box-sizing: border-box;
+  width: 100%;
+  top:0;
+  word-wrap: break-word;
+  font-size: 25px;
 }
 
 /* .events_text {

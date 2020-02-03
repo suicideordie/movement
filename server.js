@@ -76,56 +76,42 @@ function newConnection(socket) {
 }
 
 // app.get('/add/:user/:text', addWords);
-app.get('/add/:user/:text', addWords);
+app.get('/add/:id/:user/:text/:date', addWords);
 
 
 function addWords(request, response) {
   var data = request.params;
+  var id = data.id;
   var user = data.user;
   var text = data.text;
+  var date = data.date;
   var reply;
   if (!text) {
     reply = {
       msg: "Score is required."
     }
   } else {
-    post[user] = text;
-    data = JSON.stringify(post, null, 2);
-    fs.writeFile('post.json', data, finished);
-    function finished(err) {
-      console.log('all set.');
+    var blog = {
+      "id": id,
+      "user": user,
+      "text": text,
+      "date": date
     }
-    reply =  {
-      msg: "thank you for your word"
-    }
+    var obj = JSON.parse(blog);
+    obj['blog'].push(blog);
+    blog = JSON.stringify(obj);
+    // post[user] = text;
+    // data = JSON.stringify(post, null, 2);
+    // fs.writeFile('post.json', data, finished);
+    // function finished(err) {
+    //   console.log('all set.');
+    // }
+    // reply =  {
+    //   msg: "thank you for your word"
+    // }
   }
 
   response.send(reply);
-  //
-  // var id = data.id;
-  // var name = data.name;
-  // var text = data.text;
-  // var date = data.date;
-  // var reply;
-  //
-  // var blog = {
-  //   id: "id",
-  //   name: "name",
-  //   text: "text",
-  //   date: "date"
-  // }
-  //
-  // JSON.stringify(post, null, 2);
-  // fs.writeFile('post.json', JSON.stringify(blog, null, 2), { flag: ', a+' }, finished);
-  //
-  // function finished(err) {
-  //   console.log('all set.');
-  // }
-  // reply =  {
-  //   msg: "thank you for your word."
-  // }
-  //
-  //   response.send(reply);
 }
 
 app.get('/all', sendAll);
