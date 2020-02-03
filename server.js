@@ -80,35 +80,32 @@ app.get('/add/:id/:user/:text/:date', addWords);
 
 
 function addWords(request, response) {
+
   var data = request.params;
   var id = data.id;
   var user = data.user;
   var text = data.text;
-  var date = data.date;
+  var date = "0101001";
+
+  console.log("prima: " + id);
+
+  var array = [user, text, date];
   var reply;
   if (!text) {
     reply = {
-      msg: "Score is required."
+      msg: "Text is required."
     }
   } else {
-    var blog = {
-      "id": id,
-      "user": user,
-      "text": text,
-      "date": date
+    post[id] = array;
+    console.log("dopo: " + id);
+    data = JSON.stringify(post, null, 2);
+    fs.writeFile('post.json', data, finished);
+    function finished(err) {
+      console.log('all set.');
     }
-    var obj = JSON.parse(blog);
-    obj['blog'].push(blog);
-    blog = JSON.stringify(obj);
-    // post[user] = text;
-    // data = JSON.stringify(post, null, 2);
-    // fs.writeFile('post.json', data, finished);
-    // function finished(err) {
-    //   console.log('all set.');
-    // }
-    // reply =  {
-    //   msg: "thank you for your word"
-    // }
+    reply =  {
+      msg: "thank you for your word"
+    }
   }
 
   response.send(reply);

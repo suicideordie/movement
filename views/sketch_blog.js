@@ -1,5 +1,8 @@
 var user;
 var socket;
+var keys;
+var keyslen;
+var id;
 
 function setup() {
   noCanvas();
@@ -24,17 +27,17 @@ function showData(data) {
   var author;
 
   var blogbox = document.getElementById("blogbox");
-  keys = Object.entries(data);
-  console.log(keys);
+  entries = Object.entries(data);
+  // console.log(keys);
 
-  for (var i = 0; i < keys.length; i++) {
+  for (var i = 0; i < entries.length; i++) {
     container = createDiv();
     container.addClass("post");
     container.parent("blogbox")
-    author = createP(keys[i][1]);
+    author = createP(entries[i][1]);
     author.addClass("postText");
     author.parent(container);
-    post = createP(keys[i][0]);
+    post = createP(entries[i][0]);
     post.addClass("postAuthor");
     post.parent(container);
 
@@ -45,13 +48,13 @@ function submitPost() {
   var post;
   var container;
   var author;
-
+  loadJSON('all', incId);
   var text = select('#text').value();
-  var i = -1;
 
-  // loadJSON('/add/' + user + '/' + text, finished);
-  loadJSON('/add/' + id + '/' + user + '/' + text + '/' + date, finished);
+  var date = "1234";
 
+
+  loadJSON('/add/' + Number(id) + '/' + user + '/' + text + '/' + date, finished);
   container = createDiv();
   container.addClass("post");
   container.parent("blogbox");
@@ -67,4 +70,21 @@ function submitPost() {
   function finished(data) {
     console.log(data);
   }
+}
+
+function incId(data) {
+  keys = Object.keys(data);
+  keyslen = keys.length;
+  console.log("id init: " + id);
+  console.log("lunghezza chiave init: " + keyslen);
+  if(keyslen > 0) {
+    keyslen = keyslen - 1;
+    console.log("lunghezza chiave mid: " + keyslen);
+    id = Number(keys[keyslen]) + 1;
+  } else {
+    console.log("else");
+    id = 0;
+  }
+  console.log("id end: " + id);
+  console.log("lunghezza chiave end: " + keyslen);
 }
