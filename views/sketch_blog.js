@@ -1,4 +1,5 @@
 var user;
+var username;
 var socket;
 var keys;
 var keyslen;
@@ -31,13 +32,16 @@ function showData(data) {
   // console.log(keys);
 
   for (var i = 0; i < entries.length; i++) {
+
+    console.log(entries);
+
     container = createDiv();
     container.addClass("post");
     container.parent("blogbox")
-    author = createP(entries[i][1]);
+    author = createP(entries[i][1][1]);
     author.addClass("postText");
     author.parent(container);
-    post = createP(entries[i][0]);
+    post = createP("Written by " + entries[i][1][0] + " on " + entries[i][1][2]);
     post.addClass("postAuthor");
     post.parent(container);
 
@@ -55,6 +59,17 @@ function incId(data) {
   var post;
   var container;
   var author;
+  if(user != null){
+    console.log("user != null");
+    username = user;
+    console.log(username);
+  }
+
+  if(user == null){
+    console.log("user == null");
+    user = username;
+    console.log(username);
+  }
   keys = Object.keys(data);
   console.log(keys);
   keyslen = keys.length;
@@ -72,7 +87,7 @@ function incId(data) {
   console.log("id end: " + id);
   console.log("lunghezza chiave end: " + keyslen);
 
-  console.log("user injt: " + user);
+  console.log("user injt: " + username);
   loadJSON('/add/' + id + '/' + user + '/' + text + '/' + date, finished);
   console.log("user end: " + user);
   container = createDiv();
@@ -81,7 +96,7 @@ function incId(data) {
   post = createP(text);
   post.addClass("postText");
   post.parent(container);
-  author = createP(user);
+  author = createP("Written by " + user + " on " + date);
   author.addClass("postAuthor");
   author.parent(container);
 
