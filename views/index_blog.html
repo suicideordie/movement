@@ -1,0 +1,61 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+  <link rel="stylesheet" type="text/css" href="style-2.css" media="screen" />
+  <style>
+    body,
+    html {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      height: auto;
+      overflow-x: hidden;
+    }
+  </style>
+  <script src="addons/p5.min.js"></script>
+  <script src="addons/p5.sound.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src="sketch_blog.js"></script>
+
+
+</head>
+
+<body class="myBackground">
+  <div class="container">
+    <div class="header" id="header_id">
+      <div id="logo"><a class="link" href="home.html">SU!C!DE OR D!E</a></div>
+
+      <div class="menu">
+        <div class="elements" id="manifesto">THE MANIFESTO</div>
+        <div class="elements" id="protest">THE PROTEST</div>
+        <div class="elements" id="blog">THE BOARD</div>
+      </div>
+      <!-- </nav> -->
+
+      <div class="rect_social">
+        <a href="https://www.instagram.com/sod.global/?hl=it" target="_blank"><img id="instagram_logo" src="assets/instagram_logo.png"></a>
+        <a href="https://www.youtube.com/channel/UCz7J3drCKnRAi-xuyG4655A" target="_blank"><img id="YT_logo" src="assets/YT_logo.png"></a>
+      </div>
+    </div>
+
+    <div class="main">
+    <div id="blogbox">
+    <div style="position:fixed; height: 300px; width:100%; left:0px; margin:0px; bottom:0px; background-color:#59358c; pointer-events:none;">
+    </div>
+    <div class = "form">
+      <p>
+        <textarea id="text"></textarea>
+      </p>
+      <button id="postbutton">POST</button>
+    </div>
+    </div>
+    <form>
+      <button type="submit" style="position:absolute; right:60px; top:150px; width:240px;">LOGOUT</button>
+    </form>
+    </div>
+
+  </div>
+
+</body>
+</html>

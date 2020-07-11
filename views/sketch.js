@@ -4,6 +4,7 @@ var minutes = 1;
 var hour = 1;
 var buttonJoin;
 var randDiv;
+var socket;
 // var position;
 // var date, hours, minutes, seconds;
 // var formattedTime;
@@ -13,7 +14,10 @@ var randDiv;
 //   position = getCurrentPosition();
 // }
 
+
 function setup() {
+  socket = io();
+  
   noCanvas();
   buttonJoin = createButton("");
   buttonJoin.class("button");

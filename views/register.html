@@ -1,0 +1,82 @@
+<html>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+  
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <link rel="stylesheet" type="text/css" href="style-2.css" media="screen" />
+  <script src="./addons/p5.min.js"></script>
+  <script src="./addons/p5.sound.min.js"></script>
+  <script src="sketch_register.js"></script>
+  <!-- <script src="https://unpkg.com/embla-carousel"></script> -->
+  <style>
+    body,
+    html {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      height: auto;
+      overflow-x: hidden;
+      background-color: #59358c;
+    }
+  </style>
+
+</head>
+
+<body class="myBackground">
+
+  <div class="container">
+    <div class="header" id="header_id">
+      <div id="logo"><a class="link" href="home.html">SU!C!DE OR D!E</a></div>
+
+      <div class="menu">
+        <div class="elements" id="manifesto"><a class="link" href="manifesto.html" type="text/html">THE MANIFESTO</a></div>
+        <div class="elements" id="protest"><a class="link" href="protest.html" type="text/html">THE PROTEST</a></div>
+        <div class="elements" id="blog"><a class="link" href="/blog">THE BOARD</a></div>
+      </div>
+      <!-- </nav> -->
+
+      <div class="rect_social">
+        <a href="https://www.instagram.com/sod.global/?hl=it" target="_blank"><img id="instagram_logo" src="assets/instagram_logo.png"></a>
+        <a href="https://www.youtube.com/channel/UCz7J3drCKnRAi-xuyG4655A" target="_blank"><img id="YT_logo" src="assets/YT_logo.png"></a>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="giantP" style="margin-top:15vh">REGISTER</div>
+
+      <div style="margin-top:8vh;">
+        <form>
+          <div>
+            <label class="smallP" for="name">Username</label>
+            <br>
+            <input type="text" id="user" name="name" required>
+          </div>
+
+          <div>
+            <label class="smallP" for="email">Email</label>
+            <br>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div>
+            <label class="smallP" for="password">Password</label>
+            <br>
+            <input type="password" id="password" name="password" required>
+          </div>
+
+          <button onclick="register">SIGN IN</button>
+        </form>
+      </div>
+      <p class="smallP">Already registered? <a class="smallLink" href="/login">Login.</a></p>
+    </div>
+    <footer class="footer">
+      <div class="terms">© SUICIDE OR DIE 2019 | Privacy policy & Terms of service</div>
+    </footer>
+  </div>
+</body>
+
+</html>

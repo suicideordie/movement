@@ -1,26 +1,28 @@
 {
+  "name": "movement",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "name": "blog_test",
-  "version": "0.0.1",
-  "engines": {
-    "node": "12.13.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suicideordie/movement.git"
   },
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "ejs": "^3.0.1",
-    "express": "^4.17.1",
-    "express-flash": "0.0.2",
-    "express-session": "^1.17.0",
-    "method-override": "^3.0.0",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "socket.io": "^2.3.0",
-    "uniqid": "^5.2.0"
+  "author": "Ferrari - Riccardelli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suicideordie/movement/issues"
   },
-  "devDependencies": {
-    "dotenv": "^8.2.0"
-  }
+  "homepage": "https://github.com/suicideordie/movement#readme"
 }
