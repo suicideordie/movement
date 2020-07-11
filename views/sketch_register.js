@@ -3,6 +3,7 @@ var database;
 var user;
 var pwd;
 var email;
+var registerBtn;
 
 function preload(){
 
@@ -27,15 +28,39 @@ function setup(){
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   database = firebase.database();
+  console.log(database);
+
+  var textUser = document.getElementById("user");
+  var txtEmail = document.getElementById("email");
+  var txtPwd = document.getElementById("password");
+  registerBtn = document.getElementById("registerBtn");
+
+  registerBtn.addEventListener('click', e => {
+    email = txtEmail.value;
+    pwd = txtPwd.value;
+    var auth = firebase.auth();
+
+    var promise = auth.createUserWithEmailAndPassword(email, pwd);
+    promise.catch(e => console.log(e.message));
+  });
+
+  firebase.auth().onAuthStateChanged(firebaseUser => {
+    if(firebaseUser){
+      console.log(firebaseUser);
+    } else {
+      console.log("not logged in");
+    }
+  });
+
 }
 
-function register() {
-  user = getElementById("user").value;
-  mail = getElementById("email").value;
-  pwd = getElementById("password").value;
-  var userDataArray = [user, mail, pwd];
-  console.log(userDataArray);
-  var ref = database.ref(0);
-  ref.on('value', gotUser, errUser);
-  var insertUser = ref.child(0).set(userDataArray);
-}
+// function register() {
+//   user = getElementById("user").value;
+//   email = getElementById("email").value;
+//   pwd = getElementById("password").value;
+//   var userDataArray = [user, mail, pwd];
+//   console.log(userDataArray);
+//   var ref = database.ref(0);
+//   ref.on('value', gotUser, errUser);
+//   var insertUser = ref.child(1).set(userDataArray);
+// }

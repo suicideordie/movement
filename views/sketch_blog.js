@@ -1,108 +1,109 @@
-var user;
-var username;
 var socket;
-var keys;
-var keyslen;
-var id = 0;
+var database;
+var logoutBtn;
+var postbutton;
+var container;
+var post;
+var user;
+var date;
+var author;
+var text;
+var lastMSG = null;
 
 function setup() {
   noCanvas();
-  console.log("working");
-  loadJSON('all', showData);
 
-  var button = select('#postbutton');
-  button.mousePressed(submitPost);
+  //connection client-side to server
+  socket = io();
 
-  socket = io.connect();
-  // socket.emit('username', data);
-  socket.on('username', receiveName);
-}
+  var firebaseConfig = {
+    apiKey: "AIzaSyB3HuTDKr6wh9BcQl-SmoQuDXzz-IeHCo4",
+    authDomain: "suicideordie-e2766.firebaseapp.com",
+    databaseURL: "https://suicideordie-e2766.firebaseio.com",
+    projectId: "suicideordie-e2766",
+    storageBucket: "suicideordie-e2766.appspot.com",
+    messagingSenderId: "762086184061",
+    appId: "1:762086184061:web:52f6bad60b6bdcb2d5cd14",
+    measurementId: "G-6B20PKQEJ9"
+  };
 
-function receiveName(data) {
-  user = data;
-}
 
-function showData(data) {
-  var post;
-  var container;
-  var author;
+  // Initialize Firebase
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  database = firebase.database();
+  console.log(database);
 
-  var blogbox = document.getElementById("blogbox");
-  entries = Object.entries(data);
-  // console.log(keys);
+  keyCheck();
 
-  for (var i = 0; i < entries.length; i++) {
+  logoutBtn = document.getElementById("logoutBtn");
 
-    console.log(entries);
+  logoutBtn.addEventListener("click", e => {
+    firebase.auth().signOut();
+  });
+
+  firebase.auth().onAuthStateChanged(firebaseUser => {
+    if(firebaseUser){
+      console.log(firebaseUser);
+    } else {
+      window.location.href = "/login.html";
+    }
+  });
+
+  postbutton = document.getElementById("postbutton");
+
+  postbutton.addEventListener("click", e => {
+
+    text = document.getElementById("text").value; //TODO evitare messaggi vuoti
+
+    console.log(lastMSG);
+    //TODO: creare array: testo+autore+data
+    var ref = database.ref("/messaggi");
+    ref.on('value', gotMSG, errMSG);
+    var insertMSG = ref.child(lastMSG.toString()).set(text); //TODO sostituire text con array
+
+    //TODO creare array, leggere array, scrivere dati array nei messaggi e riscrivere ogni volta la "cronologia" dei messaggi
+
 
     container = createDiv();
     container.addClass("post");
-    container.parent("blogbox")
-    author = createP(entries[i][1][1]);
-    author.addClass("postText");
-    author.parent(container);
-    post = createP("Written by " + entries[i][1][0] + " on " + entries[i][1][2]);
-    post.addClass("postAuthor");
+    container.parent("blogbox");
+    post = createP(text);
+    post.addClass("postText");
     post.parent(container);
+    author = createP("Written by " + user + " on " + date);
+    author.addClass("postAuthor");
+    author.parent(container);
 
+    document.getElementById("text").value = "";
+  });
+
+  function gotMSG(data) {
+    console.log(Object.keys(data));
+    lastMSG = Object.keys(data.val()).length;
+  }
+
+  function errMSG(err) {
+    console.log('Error: ' + err);
   }
 }
 
-function submitPost() {
+function keyCheck(){
+  var ref = database.ref("/messaggi");
+  ref.on('value', gotMSG, errMSG);
 
-  loadJSON('all', incId);
-}
-
-function incId(data) {
-  var date = "03-02-2020";
-  var text = select('#text').value();
-  var post;
-  var container;
-  var author;
-  if(user != null){
-    console.log("user != null");
-    username = user;
-    console.log(username);
+  //retrieve last key to increase database
+  function gotMSG(data) {
+    if (lastMSG == null) {
+      lastMSG = 0;
+    } else {
+      // console.log(Object.keys(data.val()));
+      lastMSG = Object.keys(data.val()).length;
+    }
   }
 
-  if(user == null){
-    console.log("user == null");
-    user = username;
-    console.log(username);
-  }
-  keys = Object.keys(data);
-  console.log(keys);
-  keyslen = keys.length;
-  console.log("id init: " + id);
-  console.log("lunghezza chiave init: " + keyslen);
-  if(keyslen > 0) {
-    console.log("lunghezza chiave mid: " + keyslen);
-    // keyslen = keyslen - 1;
-    id = Number(keyslen);
-  } else {
-    console.log("else");
-    id = 0;
-  }
-  console.log("keys lenfth " + keys.length);
-  console.log("id end: " + id);
-  console.log("lunghezza chiave end: " + keyslen);
-
-  console.log("user injt: " + username);
-  loadJSON('/add/' + id + '/' + user + '/' + text + '/' + date, finished);
-  console.log("user end: " + user);
-  container = createDiv();
-  container.addClass("post");
-  container.parent("blogbox");
-  post = createP(text);
-  post.addClass("postText");
-  post.parent(container);
-  author = createP("Written by " + user + " on " + date);
-  author.addClass("postAuthor");
-  author.parent(container);
-
-  document.getElementById("text").value = "";
-
-  function finished(data) {
-    console.log(data);
+  function errMSG(err) {
+    console.log('Error: ' + err);
   }
 }

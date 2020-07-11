@@ -430,7 +430,7 @@ input[type=email] {
   box-sizing: border-box;
 }
 
-#submit{
+.buttonLog{
   background-color: #ffeb00;
   font-family: "Trim";
   font-size: 25px;
@@ -445,7 +445,7 @@ input[type=email] {
   width: 180px;
 }
 
-#submit:hover{
+.buttonLog:hover{
   color: #ffeb00;
   background-color:#59358c;
 }

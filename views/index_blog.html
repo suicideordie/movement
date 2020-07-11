@@ -16,7 +16,7 @@
   <script src="addons/p5.min.js"></script>
   <script src="addons/p5.sound.min.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-  <script src="sketch_blog.js"></script>
+
 
 
 </head>
@@ -51,11 +51,21 @@
     </div>
     </div>
     <form>
-      <button type="submit" style="position:absolute; right:60px; top:150px; width:240px;">LOGOUT</button>
+      <button id="logoutBtn" class="buttonLog" style="position:absolute; right:60px; top:150px; width:240px;">LOGOUT</button>
     </form>
     </div>
 
   </div>
 
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="sketch_blog.js"></script>
 </body>
 </html>

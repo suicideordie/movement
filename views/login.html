@@ -3,11 +3,11 @@
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
     <link rel="stylesheet" type="text/css" href="style-2.css" media="screen" />
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <!-- <script src="https://unpkg.com/embla-carousel"></script> -->
     <title>SUICIDE OR DIE - Log to The Board</title>
     <script src="./addons/p5.min.js"></script>
     <script src="./addons/p5.sound.min.js"></script>
-    <script src="sketch_login.js"></script>
     <style>
       body,
       html {
@@ -45,7 +45,7 @@
       <div class="giantP" style="margin-top:15vh;">LOGIN</div>
 
       <div style="margin-top:8vh;">
-        <form action="/login" method="POST">
+
           <div>
             <label class="smallP" for="email">Email</label>
             <br>
@@ -58,9 +58,11 @@
             <input type="password" id="password" name="password" required>
           </div>
 
-          <button type="submit">LOGIN</button>
-        </form>
-        <p class="smallP">Not registered yet? <a class="smallLink" href="register.html">Register now</a></p>
+          <button id="loginBtn" class="buttonLog">LOGIN</button>
+          <p class="smallP">OR</p>
+          <button id="registerBtn" class="buttonLog">REGISTER</button>
+
+
       </div>
 
     </div>
@@ -68,5 +70,15 @@
       <div class="terms">© SUICIDE OR DIE 2019 | Privacy policy & Terms of service</div>
     </footer>
   </div>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+      <script src="sketch_login.js"></script>
 </body>
 </html>
