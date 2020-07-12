@@ -36,12 +36,18 @@
         <div class="elements" id="blog"><a class="link" href="login.html">THE BOARD</a></div>
       </div>
 
-      <div id="burgermenu" class="burgermenu"><a href="javascript:void(0);" onclick="myFunction()">menu</a></div>
+      <div id="burgermenu" class="burgermenu"><a href="javascript:void(0);" onclick="myFunction()" style="text-decoration: none; color: #ffeb00;">&#9776;</a></div>
 
       <div class="rect_social">
         <a href="https://www.instagram.com/sod.global/?hl=it" target="_blank"><img id="instagram_logo" src="assets/instagram_logo.png"></a>
         <a href="https://www.youtube.com/channel/UCz7J3drCKnRAi-xuyG4655A" target="_blank"><img id="YT_logo" src="assets/YT_logo.png"></a>
       </div>
+    </div>
+
+    <div id="tendina">
+      <div class="elements" id="ham-manifesto"><a class="link" href="manifesto.html" type="text/html">THE MANIFESTO</a></div>
+      <div class="elements" id="ham-protest"><a class="link" href="protest.html" type="text/html">THE PROTEST</a></div>
+      <div class="elements" id="ham-blog"><a class="link" href="login.html">THE BOARD</a></div>
     </div>
 
 
@@ -136,7 +142,7 @@
     });
 
     function myFunction() {
-      var x = document.getElementById("menu");
+      var x = document.getElementById("tendina");
       if (x.style.display === "block") {
         x.style.display = "none";
       } else {

@@ -16,15 +16,34 @@
     display: none;
   }
 
-  .elements{
-    padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
+  #tendina {
+    order: 2;
+    display: block;
   }
 
-  #burgermenu{
+  #tendina div {
     display: block;
+    width: 100%;
+    margin-left: 60px;
+    padding-left: 0px;
+  }
+
+  .elements{
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+
+  #burgermenu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 60px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    font-size: 2.4em;
+    color: #ffeb00;
   }
 }
 
@@ -153,7 +172,7 @@ body, html {
 }
 
 .main {
-  order: 2;
+  order: 3;
 }
 
 #logo {
@@ -169,17 +188,16 @@ body, html {
 }
 
 .menu {
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   padding-left: 10%;
   z-index: 3;
-  /* top: 50px; */
 }
 
 .elements {
-  position: sticky;
-  position: -webkit-sticky;
   font-family: "Trim";
   /* font-size: 2.35em; */
   /* font-size: 37.6px; */
@@ -189,7 +207,6 @@ body, html {
   padding-right: 71.5px;
   /* text-align: center; */
   text-decoration: none;
-  flex-grow: 1;
   z-index: 3;
   white-space: nowrap;
 }
@@ -213,6 +230,11 @@ body, html {
 #YT_logo {
   /* position: relative; */
   z-index: 4;
+}
+
+#tendina {
+  display: none;
+  order: 3;
 }
 
 .introbox {
@@ -693,7 +715,7 @@ button[type=submit]:hover{
   height: 276px;
   background-color: #59358c;
   z-index: 2;
-  order: 2;
+  order: 4;
 }
 
 .terms {
