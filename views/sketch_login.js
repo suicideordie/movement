@@ -5,12 +5,13 @@ var pwd;
 var email;
 var registerBtn;
 var loginBtn;
+var contatore = 0;
 
-function preload(){
+function preload() {
 
 }
 
-function setup(){
+function setup() {
   noCanvas();
 
   //connection client-side to server
@@ -38,31 +39,53 @@ function setup(){
   loginBtn = document.getElementById("loginBtn");
 
   loginBtn.addEventListener('click', e => {
-    email = txtEmail.value;
-    pwd = txtPwd.value;
-    var auth = firebase.auth();
+      email = txtEmail.value;
+      pwd = txtPwd.value;
+      var auth = firebase.auth();
 
-    var promise = auth.signInWithEmailAndPassword(email, pwd);
-    promise.catch(e => console.log(e.message));
+      var promise = auth.signInWithEmailAndPassword(email, pwd);
+      promise.catch(e => {
+          if (contatore != 0) {
+            document.getElementById("error").remove();
+          }
+          contatore++;
+          var error = document.createElement("P");
+          error.innerHTML = e.message;
+          error.classList.add("smallP");
+          error.id = "error";
+          var form = document.getElementById("loginform");
+          form.appendChild(error);
+      });
   });
 
-  registerBtn.addEventListener('click', e => {
-    email = txtEmail.value;
-    pwd = txtPwd.value;
-    var auth = firebase.auth();
+registerBtn.addEventListener('click', e => {
+  email = txtEmail.value;
+  pwd = txtPwd.value;
+  var auth = firebase.auth();
 
-    var promise = auth.createUserWithEmailAndPassword(email, pwd);
-    promise.catch(e => console.log(e.message));
-  });
-
-  firebase.auth().onAuthStateChanged(firebaseUser => {
-    if(firebaseUser){
-      console.log(firebaseUser);
-      window.location.href = "/index_blog.html";
-    } else {
-      console.log("not logged in");
+  var promise = auth.createUserWithEmailAndPassword(email, pwd);
+  promise.catch(e => {
+    if (contatore != 0) {
+      document.getElementById("error").remove();
     }
+    contatore++;
+    var error = document.createElement("P");
+    error.innerHTML = e.message;
+    error.classList.add("smallP");
+    error.id = "error";
+    var form = document.getElementById("loginform");
+    form.appendChild(error);
   });
+});
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    console.log(firebaseUser);
+    window.location.href = "/index_blog.html";
+  } else {
+    console.log("not logged in");
+  }
+});
 
 }
 

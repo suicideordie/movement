@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="style-2.css" media="screen" />
   <!-- <script src="https://unpkg.com/embla-carousel"></script> -->
   <style>
     body,
@@ -30,12 +30,13 @@
     <div class="header" id="header_id">
       <div id="logo"><a class="link" href="home.html">SU!C!DE OR D!E</a></div>
 
-      <div class="menu">
+      <div class="menu" id="menu">
         <div class="elements" id="manifesto"><a class="link" href="manifesto.html" type="text/html">THE MANIFESTO</a></div>
         <div class="elements" id="protest"><a class="link" href="protest.html" type="text/html">THE PROTEST</a></div>
         <div class="elements" id="blog"><a class="link" href="login.html">THE BOARD</a></div>
       </div>
-      <!-- </nav> -->
+
+      <div id="burgermenu" class="burgermenu"><a href="javascript:void(0);" onclick="myFunction()">menu</a></div>
 
       <div class="rect_social">
         <a href="https://www.instagram.com/sod.global/?hl=it" target="_blank"><img id="instagram_logo" src="assets/instagram_logo.png"></a>
@@ -133,6 +134,15 @@
     new ElderCarousel('.carousel', {
       items: 6
     });
+
+    function myFunction() {
+      var x = document.getElementById("menu");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
   </script>
 
 </body>

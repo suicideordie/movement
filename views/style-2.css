@@ -8,27 +8,23 @@
   src: url("./assets/font/Trim-Regular.otf");
 }
 
-@media only screen and (max-width: 1685px) {
-  #who {
+@media only screen and (max-width: 1450px) {
+  #manifesto, #protest, #blog  {
+  }
+
+  #menu{
     display: none;
   }
-}
 
-@media only screen and (max-width: 1563px) {
-  #who, #manifesto {
-    display: none;
+  .elements{
+    padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
   }
-}
 
-@media only screen and (max-width: 1280px) {
-  #who, #manifesto, #protest {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 1034px) {
-  #who, #manifesto, #protest, #blog {
-    display: none;
+  #burgermenu{
+    display: block;
   }
 }
 
@@ -62,7 +58,7 @@
   }
 }
 
-/*acess page*/
+/*access page*/
 .title {
   font-family: "Trim";
   color: #ffeb00;
@@ -143,21 +139,17 @@ body, html {
 .header {
   height: 100px;
   width: 100%;
-  /* overflow: hidden; */
   display: flex;
   justify-content: space-between;
-  overflow: visible;
+  overflow: hidden;
   background-color: #59358c;
   z-index: 2;
   align-items: center;
   order: 1;
 }
 
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
+.burgermenu{
+  display: none;
 }
 
 .main {
@@ -178,8 +170,9 @@ body, html {
 
 .menu {
   position: relative;
-  : flex;
-  padding-left: 350px;
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
   z-index: 3;
   /* top: 50px; */
 }
@@ -190,7 +183,7 @@ body, html {
   font-family: "Trim";
   /* font-size: 2.35em; */
   /* font-size: 37.6px; */
-  font-size: 1.95vw;
+  font-size: 2.35em;
   color: #ffeb00;
   display: inline;
   padding-right: 71.5px;

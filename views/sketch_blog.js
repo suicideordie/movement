@@ -2,7 +2,6 @@ var socket;
 var database;
 var logoutBtn;
 var postbutton;
-// var container;
 var post;
 var user;
 var userData;
@@ -13,9 +12,9 @@ var text;
 var textData;
 var timestamp;
 var timestampData;
-var lastMSG = null;
-var arrayMSG;
-var contatore = 0;
+var lastMSG = null; //contatore che memorizza il totale dei msg inviati
+var arrayMSG; //array che contiene il testo, l'autore e la data del msg
+var contatore = 0; //contatore che resetta i messaggi, ogni volta che un nuovo msg viene inviato
 
 function setup() {
   noCanvas();
@@ -50,16 +49,17 @@ function setup() {
     }
   });
 
-  // keyCheck();
-
+  //Listener per la funzione di LogOut
   logoutBtn = document.getElementById("logoutBtn");
 
   logoutBtn.addEventListener("click", e => {
     firebase.auth().signOut();
   });
 
+  //funzione che mostra e aggiorna tutti i messaggi
   showAllMsg();
 
+  //listener che invia un nuovo messggio dalla casella di testo al database
   postbutton = document.getElementById("postbutton");
 
   postbutton.addEventListener("click", e => {
@@ -67,27 +67,27 @@ function setup() {
     if (document.getElementById("text").value != "") { //Evita l'invio di messaggi vuoti
       text = document.getElementById("text").value;
 
-      console.log(lastMSG);
       var usermail = firebase.auth().currentUser.email;
       var tempArray = usermail.split('@');
       user = tempArray[0];
-      var h = hour();
+      var h = hour(); //viene calcolata l'ora di invio e la data
       var min = minute();
       var d = day();
       var m = month();
       var y = year();
+      if(min<10){
+        min = "0"+min; //aggiunge uno zero prima dei minuti tipo 00 01 02...
+      }
       timestamp = d + "." + m + "." + y + " " + h + ":" + min;
-      arrayMSG = [text, user, timestamp];
+      arrayMSG = [text, user, timestamp]; //viene popolato l'array
       var ref = database.ref("messaggi");
       var readMsgListener = ref.on('value', gotMSG, errMSG);
-      var insertMSG = ref.child(lastMSG.toString()).set(arrayMSG);
-      // window.location.reload();
-      //TODO scrivere dati array nei messaggi e riscrivere ogni volta la "cronologia" dei messaggi
+      var insertMSG = ref.child(lastMSG.toString()).set(arrayMSG); //il msg viene inviato al DB nella sezione "messaggi"
+      document.getElementById("text").value = ""; //la casella di testo viene resettata.
     }
   });
 
   function gotMSG(data) {
-    console.log(Object.keys(data));
     lastMSG = Object.keys(data.val()).length;
   }
 
@@ -96,27 +96,6 @@ function setup() {
   }
 }
 
-// function keyCheck(){
-//   var ref = database.ref("/messaggi");
-//   var keyCheckListener = ref.on('value', checkMSG, errorMSG);
-// }
-//   //retrieve last key to increase database
-//   function checkMSG(data) {
-//     if (lastMSG == null) {
-//       lastMSG = 0;
-//     } else {
-//       // console.log(Object.keys(data.val()));
-//       lastMSG = Object.keys(data.val()).length;
-//     }
-//
-//   }
-//
-//   function errorMSG(err) {
-//     console.log('Error: ' + err);
-//   }
-
-
-
 function showAllMsg() {
   var ref = database.ref();
   ref.on('value', gotData, errData);
@@ -124,7 +103,6 @@ function showAllMsg() {
 
 function gotData(data) {
   lastMSG = Object.keys(data.val()["messaggi"]).length;
-  console.log(lastMSG);
 
   if (contatore == 0) {
     for (var i = 0; i < lastMSG; i++) {
@@ -151,11 +129,10 @@ function gotData(data) {
       author.parent(container);
     }
 
-    contatore++;
+    contatore++; //dopo che i msg sono stati creati la prima volta, bisogna anche cancellarli, altrimenti appaiono come doppioni.
 
   } else {
     for (var i = 0; i < lastMSG-1; i++) {
-      console.log(i);
       var div = document.getElementById("post" + i);
       div.remove();
     }
@@ -183,7 +160,6 @@ function gotData(data) {
       author.addClass("postAuthor");
       author.parent(container);
     }
-    document.getElementById("text").value = "";
   }
 }
 
