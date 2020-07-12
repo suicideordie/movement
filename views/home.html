@@ -149,6 +149,13 @@
         x.style.display = "block";
       }
     }
+
+    window.addEventListener("resize", function(){
+      if(window.innerWidth > 1450){
+        document.getElementById("tendina").style.display = "none";
+      }
+    })
+
   </script>
 
 </body>

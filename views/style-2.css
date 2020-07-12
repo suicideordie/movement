@@ -9,9 +9,6 @@
 }
 
 @media only screen and (max-width: 1450px) {
-  #manifesto, #protest, #blog  {
-  }
-
   #menu{
     display: none;
   }
@@ -40,10 +37,16 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 60px;
+    padding-left: 60px;
     padding-bottom: 10px;
     text-decoration: none;
     font-size: 2.4em;
     color: #ffeb00;
+  }
+
+  .beforeEnlarge{
+    font-size: 150px;
+    top:500px;
   }
 }
 
@@ -128,7 +131,6 @@ body, html {
   margin: 0;
   height: 100%;
   overflow-x: hidden;
-  overflow-x: hidden;
 
 }
 
@@ -173,6 +175,7 @@ body, html {
 
 .main {
   order: 3;
+  overflow-y: hidden;
 }
 
 #logo {
@@ -247,6 +250,21 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+#intro {
+  font-family: "Trim";
+  font-size: 6vw;
+  color: #ffeb00;
+  text-align: left;
+  text-decoration: none;
+  margin-left: 60px;
+  margin-bottom: 160px;
+  margin-right:120px;
+  max-width: 1100px;
+  min-width: 50px;
+  line-height: 5.5vw;
+  z-index: 1;
 }
 
 .titleBox {
@@ -485,6 +503,16 @@ button[type=submit]:hover{
   background-color:#59358c;
 }
 
+#logoutBtn{
+  width: 15%;
+  position: absolute;
+  top: 160px;
+  right: 2%;
+  margin: 0;
+  padding: 0;
+  max-width: 250px;
+}
+
 .smallLink{
   color: #ffeb00;
 }
@@ -566,27 +594,25 @@ button[type=submit]:hover{
 
 #text{
   resize: none;
-
   font-family: "Trim-regular";
   font-size: 20px;
-
-
   position: fixed;
   margin-left: 0px;
   bottom: 150px;
-  width:calc(100% - 310px - 310px);
+  width:60%;
   height: 120px;
   padding: 10px 10px;
   border: 5px solid #ffeb00;
 }
 
 #blogbox{
-  position:absolute;
+  position: relative;
+  overflow-y: hidden;
   /* background-color: #ddd; */
-  top: 145px;
-  width:calc(100% - 310px - 310px);
-  margin-left:310px;
-  margin-right:310px;
+  top: 44px;
+  width:60%;
+  margin-left:20%;
+  margin-right:20%;
   margin-bottom: 360px;
 }
 
@@ -683,28 +709,33 @@ button[type=submit]:hover{
 
 .ec .ec__nav {
   position: absolute;
-  bottom: 10px;
-  border-top: 2px solid #59358c;
-  border-right: 2px solid #59358c;
-  width: 8px;
-  height: 8px;
-  cursor: pointer
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
 .ec .ec__nav:before {
-  content: ''
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #59358c;
+  border-right: 2px solid #59358c;
+  transform: translate(8px, 8px);
+  position: absolute;
 }
 
 .ec .ec__nav--prev {
   transform: rotate(-135deg);
   top: 494px;
   left: 3.75em;
+  background-color: #ffeb00;
 }
 
 .ec .ec__nav--next {
   transform: rotate(45deg);
   top: 494px;
   right: 3.75em;
+  background-color: #ffeb00;
 }
 
 .footer {
@@ -723,7 +754,7 @@ button[type=submit]:hover{
   font-size: 12.5px;
   line-height: 30px;
   letter-spacing: 0.38px;
-  margin-left: 120px;
+  margin-left: 60px;
   margin-top: 232px;
   color: #ffeb00;
 }

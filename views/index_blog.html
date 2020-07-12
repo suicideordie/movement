@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
@@ -23,49 +24,73 @@
 
 <body class="myBackground">
   <div class="container">
-    <div class="header" id="header_id">
-      <div id="logo"><a class="link" href="home.html">SU!C!DE OR D!E</a></div>
+      <div class="header" id="header_id">
+        <div id="logo"><a class="link" href="home.html">SU!C!DE OR D!E</a></div>
 
-      <div class="menu">
-        <div class="elements" id="manifesto">THE MANIFESTO</div>
-        <div class="elements" id="protest">THE PROTEST</div>
-        <div class="elements" id="blog">THE BOARD</div>
-      </div>
-      <!-- </nav> -->
+        <div class="menu" id="menu">
+          <div class="elements" id="manifesto"><a class="link" href="manifesto.html" type="text/html">THE MANIFESTO</a></div>
+          <div class="elements" id="protest"><a class="link" href="protest.html" type="text/html">THE PROTEST</a></div>
+          <div class="elements" id="blog"><a class="link" href="login.html">THE BOARD</a></div>
+        </div>
 
-      <div class="rect_social">
-        <a href="https://www.instagram.com/sod.global/?hl=it" target="_blank"><img id="instagram_logo" src="assets/instagram_logo.png"></a>
-        <a href="https://www.youtube.com/channel/UCz7J3drCKnRAi-xuyG4655A" target="_blank"><img id="YT_logo" src="assets/YT_logo.png"></a>
+        <div id="burgermenu" class="burgermenu"><a href="javascript:void(0);" onclick="myFunction()" style="text-decoration: none; color: #ffeb00;">&#9776;</a></div>
+
+        <div class="rect_social">
+          <a href="https://www.instagram.com/sod.global/?hl=it" target="_blank"><img id="instagram_logo" src="assets/instagram_logo.png"></a>
+          <a href="https://www.youtube.com/channel/UCz7J3drCKnRAi-xuyG4655A" target="_blank"><img id="YT_logo" src="assets/YT_logo.png"></a>
+        </div>
       </div>
-    </div>
+
+      <div id="tendina">
+        <div class="elements" id="ham-manifesto"><a class="link" href="manifesto.html" type="text/html">THE MANIFESTO</a></div>
+        <div class="elements" id="ham-protest"><a class="link" href="protest.html" type="text/html">THE PROTEST</a></div>
+        <div class="elements" id="ham-blog"><a class="link" href="login.html">THE BOARD</a></div>
+      </div>
 
     <div class="main">
-    <div id="blogbox">
-    <div style="position:fixed; height: 300px; width:100%; left:0px; margin:0px; bottom:0px; background-color:#59358c; pointer-events:none;">
-    </div>
-    <div class = "form">
-      <p>
-        <textarea id="text"></textarea>
-      </p>
-      <button id="postbutton">POST</button>
-    </div>
-    </div>
-    <form>
-      <button id="logoutBtn" class="buttonLog" style="position:absolute; right:60px; top:150px; width:240px;">LOGOUT</button>
-    </form>
+      <div id="blogbox">
+        <div style="position:fixed; height: 300px; width:100%; left:0px; margin:0px; bottom:0px; background-color:#59358c; pointer-events:none;">
+        </div>
+        <div class="form">
+          <p>
+            <textarea id="text"></textarea>
+          </p>
+          <button id="postbutton">POST</button>
+        </div>
+      </div>
+      <form>
+        <button id="logoutBtn" class="buttonLog">LOGOUT</button>
+      </form>
     </div>
 
   </div>
 
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
 
-<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
 
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
-    <script src="sketch_blog.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+  <script src="sketch_blog.js"></script>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("tendina");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 1450) {
+        document.getElementById("tendina").style.display = "none";
+      }
+    })
+  </script>
 </body>
+
 </html>
