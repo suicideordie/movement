@@ -606,6 +606,46 @@ input[type=email] {
   background-color: #59358c;
 }
 
+.downloadBtn {
+  background-color: #ffeb00;
+  font-family: "Trim";
+  font-size: 25px;
+  color: #59358c;
+  cursor: pointer;
+  border: 5px solid #ffeb00;
+  margin-left: calc(60px + 10vw);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  height: 50px;
+  width: 180px;
+}
+
+.downloadBtn:hover {
+  color: #ffeb00;
+  background-color: #59358c;
+}
+
+.downloadBtn-2 {
+  background-color: #59358c;
+  font-family: "Trim";
+  font-size: 25px;
+  color: #ffeb00;
+  cursor: pointer;
+  border: 5px solid #59358c;
+  margin-left: calc(60px + 10vw);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  height: 50px;
+  width: 180px;
+}
+
+.downloadBtn-2:hover {
+  color: #59358c;
+  background-color: #ffeb00;
+}
+
 button[type=submit] {
   background-color: #ffeb00;
   font-family: "Trim";
