@@ -9,7 +9,7 @@
 }
 
 @media only screen and (max-width: 1450px) {
-  #menu{
+  #menu {
     display: none;
   }
 
@@ -25,7 +25,7 @@
     padding-left: 0px;
   }
 
-  .elements{
+  .elements {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
@@ -44,10 +44,57 @@
     color: #ffeb00;
   }
 
-  .beforeEnlarge{
-    font-size: 150px;
-    top:500px;
+  .beforeEnlarge {
+    font-size: 180px;
+    line-height: 144px;
   }
+
+  .title{
+    font-size: 120px;
+    line-height: 100px;
+  }
+
+    #counter{
+      font-size: 240px;
+      line-height: 200px;
+    }
+
+
+}
+
+@media only screen and (min-width: 1450px) {
+  .beforeEnlarge {
+    font-size: 240px;
+    line-height: 200px;
+  }
+
+  .title{
+    font-size: 120px;
+    line-height: 100px;
+  }
+
+    #counter{
+      font-size: 240px;
+      line-height: 200px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+  .beforeEnlarge {
+    font-size: 140px;
+    line-height: 112px;
+  }
+
+  .title{
+    font-size: 80px;
+    line-height: 64px;
+  }
+
+  #counter{
+    font-size: 240px;
+    line-height: 192px;
+  }
+
 }
 
 @media screen and (min-width: 866px) {
@@ -55,13 +102,23 @@
     font-size: 120px;
     line-height: 100px;
   }
-  .largeP-2{
+
+  .largeP-2 {
     font-size: 120px;
     line-height: 100px;
   }
-  .giantP{
-    font-size:240px;
-    line-height:200px;
+
+  .giantP {
+    font-size: 240px;
+    line-height: 200px;
+  }
+
+  .smallP{
+    font-size: 25px;
+  }
+
+  .smallP-2{
+    font-size: 25px;
   }
 }
 
@@ -70,14 +127,72 @@
     font-size: 80px;
     line-height: 66.4px;
   }
+
   .largeP-2 {
     font-size: 80px;
     line-height: 66.4px;
   }
-  .giantP{
-    font-size:200px;
-    line-height:166.66px;
+
+  .giantP {
+    font-size: 180px;
+    line-height: 144px;
   }
+
+  .beforeEnlarge {
+    font-size: 120px;
+    line-height: 96px;
+  }
+
+  .smallP{
+    font-size: 18px;
+  }
+
+  .smallP-2{
+    font-size: 18px;
+  }
+
+  .title{
+    font-size: 80px;
+    line-height: 64px;
+  }
+
+  #counter{
+    font-size: 240px;
+    line-height: 192px;
+  }
+
+}
+
+@media only screen and (max-width: 660px) {
+  .largeP {
+    font-size: 60px;
+    line-height: 48px;
+  }
+
+  .largeP-2 {
+    font-size: 60px;
+    line-height: 48px;
+  }
+
+  .giantP {
+    font-size: 140px;
+    line-height: 112px;
+  }
+
+  .beforeEnlarge {
+    font-size: 100px;
+    line-height: 80px;
+  }
+
+  .title{
+    font-size: 80px;
+    line-height: 64px;
+  }
+
+    #counter{
+      font-size: 200px;
+      line-height: 160px;
+    }
 }
 
 /*access page*/
@@ -85,42 +200,52 @@
   font-family: "Trim";
   color: #ffeb00;
   position: relative;
-  left: 8.34375rem;
   margin: 0px;
   padding: 0px;
-  font-size: 120px;
+  white-space: nowrap;
 }
 
-#p01 {
+/* #p01 {
   top: 133.5px;
   font-size: 1em;
   line-height: 100px;
-}
+} */
 
-#counter {
+/* #counter {
   top: 142.5px;
   font-size: 3em;
   line-height: 300px;
-}
+} */
 
-#p02 {
+/* #p02 {
   top: 151.5px;
   font-size: 1em;
   line-height: 100px;
+} */
+#accesspage{
+  padding-top: 10vh;
+  width: 60vw;
+  margin:auto;
 }
 
 .button {
-  background: transparent url("./assets/button-join.png");
-  background-repeat: no-repeat;
-  border: none;
-  outline: 0;
+  background-color: #ffeb00;
+  font-family: "Trim";
+  font-size: 50px;
+  color: #59358c;
   cursor: pointer;
-  position: relative;
-  padding: 0px;
-  left: 270px;
-  top: 300px;
-  width: 303px;
-  height: 151px;
+  border: 5px solid #ffeb00;
+  margin-left: 20vw;
+  margin-top: 10vh;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  height: 100px;
+  width: 180px;
+}
+
+.button:hover{
+  color: #ffeb00;
+  background-color: #59358c;
 }
 
 /* --end acess page
@@ -131,7 +256,6 @@ body, html {
   margin: 0;
   height: 100%;
   overflow-x: hidden;
-
 }
 
 .myBackground {
@@ -169,7 +293,7 @@ body, html {
   order: 1;
 }
 
-.burgermenu{
+.burgermenu {
   display: none;
 }
 
@@ -260,7 +384,7 @@ body, html {
   text-decoration: none;
   margin-left: 60px;
   margin-bottom: 160px;
-  margin-right:120px;
+  margin-right: 120px;
   max-width: 1100px;
   min-width: 50px;
   line-height: 5.5vw;
@@ -278,13 +402,13 @@ body, html {
   justify-content: flex-start;
 }
 
-.violet{
+.violet {
   background-color: #59358c;
   padding-top: 120px;
   padding-bottom: 60px;
 }
 
-.yellow{
+.yellow {
   background-color: #ffeb00;
   padding-top: 120px;
   padding-bottom: 60px;
@@ -318,7 +442,6 @@ body, html {
 
 .smallP {
   font-family: "Trim-regular";
-  font-size: 25px;
   color: #ffeb00;
   text-align: left;
   text-decoration: none;
@@ -334,6 +457,7 @@ body, html {
 #hiddenText {
   margin-top: 1500px;
 }
+
 .largeP-2 {
   font-family: "Trim";
   color: #59358c;
@@ -347,9 +471,8 @@ body, html {
   /* z-index: 1; */
 }
 
-.smallP-2{
+.smallP-2 {
   font-family: "Trim-regular";
-  font-size: 25px;
   color: #59358c;
   text-align: left;
   text-decoration: none;
@@ -364,16 +487,16 @@ body, html {
 
 .beforeEnlarge {
   font-family: "Trim";
-  font-size: 240px;
+  /* font-size: 240px; */
   color: #ffeb00;
   text-align: left;
   text-decoration: none;
-
   position: absolute;
   left: 0;
   top: 1200px;
   margin-left: 60px;
   min-width: 50px;
+  white-space: nowrap;
   /* z-index: 1; */
 }
 
@@ -383,58 +506,58 @@ body, html {
   color: #ffeb00;
   text-align: left;
   text-decoration: none;
-
   position: fixed;
   top: 28%;
   left: 60px;
-  pointer-events:none;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .hiddenElement {
   visibility: hidden;
 }
 
-.photoBox{
+.photoBox {
   height: 90vh;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-.fotoModello{
+.fotoModello {
   width: 100%;
   margin-left: 0px;
 }
 
-.istruzioni{
-  margin-left:60px;
-  margin-right:60px;
+.istruzioni {
+  margin-left: 60px;
+  margin-right: 60px;
   max-height: 100vh;
 }
 
-.download{
+.download {
   font-family: "Trim-regular";
   font-size: 25px;
   color: #ffeb00;
   text-align: left;
   text-decoration: underline;
-  margin-top:-100px;
-  margin-left:11vw;
+  margin-top: -100px;
+  margin-left: 11vw;
 }
 
-.download-2{
+.download-2 {
   font-family: "Trim-regular";
   font-size: 25px;
   color: #59358c;
   text-align: left;
   text-decoration: underline;
-  margin-top:-100px;
-  margin-left:11vw;
+  margin-top: -100px;
+  margin-left: 11vw;
 }
 
 input[type=text] {
   margin-left: 60px;
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  padding-left:10px;
+  padding-left: 10px;
   height: 40px;
   border: 5px solid #ffeb00;
   display: inline-block;
@@ -443,9 +566,9 @@ input[type=text] {
 
 input[type=password] {
   margin-left: 60px;
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  padding-left:10px;
+  padding-left: 10px;
   height: 40px;
   border: 5px solid #ffeb00;
   display: inline-block;
@@ -454,56 +577,56 @@ input[type=password] {
 
 input[type=email] {
   margin-left: 60px;
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  padding-left:10px;
+  padding-left: 10px;
   height: 40px;
   border: 5px solid #ffeb00;
   display: inline-block;
   box-sizing: border-box;
 }
 
-.buttonLog{
+.buttonLog {
   background-color: #ffeb00;
   font-family: "Trim";
   font-size: 25px;
-  color:#59358c;
+  color: #59358c;
   cursor: pointer;
   border: 5px solid #ffeb00;
   margin-left: 60px;
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  padding-left:10px;
+  padding-left: 10px;
   height: 50px;
   width: 180px;
 }
 
-.buttonLog:hover{
+.buttonLog:hover {
   color: #ffeb00;
-  background-color:#59358c;
+  background-color: #59358c;
 }
 
-button[type=submit]{
+button[type=submit] {
   background-color: #ffeb00;
   font-family: "Trim";
   font-size: 25px;
-  color:#59358c;
+  color: #59358c;
   cursor: pointer;
   border: 5px solid #ffeb00;
   margin-left: 60px;
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  padding-left:10px;
+  padding-left: 10px;
   height: 50px;
   width: 180px;
 }
 
-button[type=submit]:hover{
+button[type=submit]:hover {
   color: #ffeb00;
-  background-color:#59358c;
+  background-color: #59358c;
 }
 
-#logoutBtn{
+#logoutBtn {
   width: 15%;
   position: absolute;
   top: 160px;
@@ -513,7 +636,7 @@ button[type=submit]:hover{
   max-width: 250px;
 }
 
-.smallLink{
+.smallLink {
   color: #ffeb00;
 }
 
@@ -592,53 +715,52 @@ button[type=submit]:hover{
   color: #ffeb00;
 }
 
-#text{
+#text {
   resize: none;
   font-family: "Trim-regular";
   font-size: 20px;
   position: fixed;
   margin-left: 0px;
   bottom: 150px;
-  width:60%;
+  width: 60%;
   height: 120px;
   padding: 10px 10px;
   border: 5px solid #ffeb00;
 }
 
-#blogbox{
+#blogbox {
   position: relative;
   overflow-y: hidden;
   /* background-color: #ddd; */
   top: 44px;
-  width:60%;
-  margin-left:20%;
-  margin-right:20%;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
   margin-bottom: 360px;
 }
 
-#postbutton{
+#postbutton {
   position: fixed;
   bottom: 50px;
-
   background-color: #ffeb00;
   font-family: "Trim";
   font-size: 25px;
-  color:#59358c;
+  color: #59358c;
   cursor: pointer;
   border: 5px solid #ffeb00;
-  padding-left:10px;
+  padding-left: 10px;
   height: 50px;
   width: 180px;
 }
 
-#postbutton:hover{
+#postbutton:hover {
   color: #ffeb00;
-  background-color:#59358c;
+  background-color: #59358c;
 }
 
-.post{
+.post {
   font-family: "Trim-regular";
-  color:#ffeb00;
+  color: #ffeb00;
   box-sizing: border-box;
   background-color: #59358c;
   border: 5px solid #ffeb00;
@@ -647,10 +769,10 @@ button[type=submit]:hover{
   margin-bottom: 20px;
 }
 
-.postText{
+.postText {
   box-sizing: border-box;
   width: 100%;
-  top:0;
+  top: 0;
   word-wrap: break-word;
   font-size: 25px;
 }

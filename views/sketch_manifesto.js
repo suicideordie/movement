@@ -22,7 +22,6 @@ function setup() {
 function draw() {
   pos = document.body.scrollTop;
 
-  console.log(pos);
 
   if (pos <= 950) {
     document.getElementById("cutout").classList.add("beforeEnlarge");
